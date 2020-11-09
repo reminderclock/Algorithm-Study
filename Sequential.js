@@ -77,7 +77,7 @@
 // 센티미터 -> 미터, 센티미터
 {
         function solution(a) {
-            let m = 0;;
+            let m = 0;
             let cm = 0;
             while(a>=100){
                 m++;
@@ -87,6 +87,14 @@
             return console.log(`${m} ${cm}`);
         }
         solution(1200);
+}
+{
+    function solution(a) {
+        let m = Math.floor(a/100);
+        let cm = a%100;
+        return console.log(`${m} ${cm}`);
+    }
+    solution(1220);
 }
 // 미터 -> 킬로미터, 미터
 {
@@ -101,6 +109,14 @@
             return console.log(`${km} ${m}`);
         }
         solution(1800);
+}
+{
+    function solution(a) {
+        let km = Math.floor(a/1000);
+        let m = a%1000;
+        return console.log(`${km} ${m}`);
+    }
+    solution(1800);
 }
 // 초 단위 시간을 -> 시간, 분, 초 변환
 {
@@ -121,6 +137,18 @@
         }
         solution(3754);
 }
+{
+    function solution(a) {
+        let second = a;
+        let hour = Math.floor(second/3600);
+        second %= 3600;
+        let minute = Math.floor(second/60);
+        second %= 60;
+
+        return console.log(`${hour}:${minute}:${second}`);
+    }
+    solution(3754);
+}
 // 분 단위 -> 일, 시간, 분 변환
 {
         function solution(a) {
@@ -139,6 +167,17 @@
             return console.log(`${day} ${hour}:${minute}`);
         }
         solution(1500);
+}
+{
+    function solution(a) {
+        let minute = a;
+        let day = Math.floor(minute/1440);
+        minute %= 1440;
+        let hour = Math.floor(minute/60);
+        minute %= 60;
+        return console.log(`${day} ${hour}:${minute}`);
+    }
+    solution(1500);
 }
 // 원 단위 돈을 -> 5만, 만, 5천, 천, 5백, 백, 5십, 십, 1원 변환
 {
@@ -191,4 +230,28 @@
         }
         solution(67875);
 }
+{
+    function solution(a) {
+        let one = a;
+        let fMil = Math.floor(one/50000);
+        one %= 50000;
+        let mil = Math.floor(one/10000);
+        one %= 10000;
+        let fThu = Math.floor(one/5000);
+        one %= 5000;
+        let thu = Math.floor(one/1000);
+        one %= 1000;
+        let fHun = Math.floor(one/500);
+        one %= 500;
+        let hun = Math.floor(one/100);
+        one %= 100;
+        let fif = Math.floor(one/50);
+        one %= 50;
+        let ten = Math.floor(one/10);
+        one %= 10;
+        return console.log(`오만원권:${fMil} 만원권:${mil} 오천원권:${fThu} 천원권:${thu} 오백원:${fHun} 백원:${hun} 오십원:${fif} 십원:${ten} 원:${one}`);
+    }
+    solution(67875);
+}
+
 
