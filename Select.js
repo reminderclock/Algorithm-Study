@@ -9,6 +9,13 @@
     }
     solution(4,3);
 }
+{
+    function solution(a,b) {
+        return Math.max(a,b);
+    }
+    console.log(solution(3,5));
+    console.log(solution(13,5));
+}
 // 두 수중 작은 수 찾기
 {
     function solution(a,b) {
@@ -19,6 +26,12 @@
         return console.log(min);
     }
     solution(2,3);
+}
+{
+    function solution(a,b) {
+        return Math.min(a,b);
+    }
+    console.log(solution(2,7));
 }
 // 양수, 0, 음수 판별
 {
@@ -33,6 +46,13 @@
             return 0;
         }
     }
+    console.log(solution(0));
+}
+{
+    function solution(a) {
+        return Math.sign(a);
+    }
+    console.log(solution(5));
     console.log(solution(0));
 }
 // 두수의 차 절대값 출력
@@ -68,6 +88,12 @@
     }
     console.log(solution(1,2,6));
 }
+{
+    function solution(a,b,c) {
+        return Math.max(a,b,c);
+    }
+    console.log(solution(1,14,188));
+}
 // 세 수중 가장 작은 수 찾기
 {
     function solution(a,b,c) {
@@ -82,6 +108,12 @@
     }
     console.log(solution(1,2,6));
 }
+{
+    function solution(a,b,c) {
+        return Math.min(a,b,c);
+    }
+    console.log(solution(-1,20,-19));
+}
 // 홀수, 짝수 판별
 {
     function solution(a) {
@@ -94,6 +126,19 @@
         }
     }
     console.log(solution(3));
+}
+{
+    function solution(a) {
+        return a%2 ? '홀' : '짝';
+    }
+    console.log(solution(18));
+    console.log(solution(19));
+}
+{
+    function solution() {
+        return
+    }
+    console.log(solution());
 }
 // 5의 배수 판별
 {
@@ -108,6 +153,16 @@
     }
     console.log(solution(21));
     console.log(solution(20));
+}
+{
+    function solution(a) {
+        return a%5 ? '!5배수' : '5배수';
+    }
+    console.log(solution(7));
+    console.log(solution(20));
+}
+{
+
 }
 // 나이에 따른 입장료 정가 10000원
 // 7세 미만 무료, 7~60미만 정가
@@ -139,6 +194,13 @@
     console.log(solution(25));
     console.log(solution(15));
 }
+{
+    function solution(a) {
+        return (a%5+a%3) ? '!5&3배수' : '5&3배수';
+    }
+    console.log(solution(15));
+    console.log(solution(20));
+}
 // 3의 배수 || 5의 배수 판별
 {
     function solution(a) {
@@ -152,6 +214,13 @@
     console.log(solution(15));
     console.log(solution(6));
     console.log(solution(4));
+}
+{
+    function solution(a) {
+        return a%3*a%5 ? '!5||3배수' : '5||3배수';
+    }
+    console.log(solution(6));
+    console.log(solution(2));
 }
 // 나이에 따른 공원 입장료
 //8이상~70미만 100 / 나머지 무료
@@ -167,4 +236,11 @@
     console.log(solution(40));
     console.log(solution(7));
     console.log(solution(71));
+}
+{
+    function solution(a) {
+        return (a<8)||(a>=70) ? 0 : 10000;
+    }
+    console.log(solution(5));
+    console.log(solution(55));
 }
