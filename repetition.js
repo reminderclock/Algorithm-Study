@@ -302,3 +302,20 @@
     console.log(solution(12));
     console.log(solution(100));
 }
+
+// -(1/2)+(2/3)-(3/4)+(4/5)-(5/6)...-(99/100) 합
+{
+    function solution() {
+        let n =0;
+        for(let i=1; i<=99; i++) {
+            if(i%2!==0) {
+                n += -(i/(i+1));
+            }
+            else{
+                n += i/(i+1);
+            }
+        }
+        return n;
+    }
+    console.log(solution());
+}
