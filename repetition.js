@@ -319,3 +319,62 @@
     }
     console.log(solution());
 }
+
+// 수찍기1
+{
+    for(var i=1; i<=5; i++){
+        var count =1;
+        while(count<=i){
+        document.write(i);
+        count= count+1;
+        }
+        document.write("<br/>");
+        }
+
+}
+//수찍기2
+{
+    for(var i=5; i>=1; i--){
+        for(var j=1; j<=i; j++){
+        document.write(j);
+        }
+        document.write("<br/>");
+        }
+}
+//수찍기3
+{
+    for(var i=1; i<=5; i++){
+        for(var j=1; j<=i; j++){
+        document.write(i);
+        }
+        document.write("<br/>");
+        }
+}
+//수찍기4
+{
+    for(var i=5; i>=1; i--){
+        for(var j=i; j>=1; j--){
+        document.write(j);
+        
+        }
+        document.write("<br/>");
+        }
+}
+//구구단
+{
+    for(var i=2; i<=9; i++){
+        for(var j=1; j<=9; j++){
+        document.write(i+"*"+j+"= "+i*j+" ");
+        }
+        document.write("<br/>");
+        }
+}
+//구구단2 
+{
+    for(var i=1; i<=9; i++){
+        for(var j=2; j<=9; j++){
+        document.write(j+"*"+i+"= "+j*i+" ");
+        }
+        document.write("<br/>");
+        }
+}
