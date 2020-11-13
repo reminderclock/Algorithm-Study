@@ -320,61 +320,122 @@
     console.log(solution());
 }
 
-// 수찍기1
+//구구단
 {
-    for(var i=1; i<=5; i++){
-        var count =1;
-        while(count<=i){
-        document.write(i);
-        count= count+1;
+    function solution() {
+        let n ='';
+        for(let i=2; i<=9; i++) {
+            for(let j=1; j<=9; j++) {
+                n += `${i}*${j}=${i*j} `;
+            }
+            n += '\n';
         }
-        document.write("<br/>");
+        return n;
+    }
+    console.log(solution());
+}
+//수찍기1
+{
+    function solution() {
+        let n='';
+        for(let i=5; i>=1; i--) {
+            for(let j=1; j<=i; j++) {
+                n += j;
+            }
+            n += '\n';
         }
-
+        return n;
+    }
+    console.log(solution());
 }
 //수찍기2
 {
-    for(var i=5; i>=1; i--){
-        for(var j=1; j<=i; j++){
-        document.write(j);
+    function solution() {
+        let n = '';
+        for(let i=1; i<=5; i++) {
+            for(let j=1; j<=i; j++) {
+                n += j;
+            }
+            n += '\n';
         }
-        document.write("<br/>");
-        }
+        return n;
+    }
+    console.log(solution());
 }
 //수찍기3
 {
-    for(var i=1; i<=5; i++){
-        for(var j=1; j<=i; j++){
-        document.write(i);
+    function solution() {
+        let n='';
+        for(let i=1; i<=5; i++) {
+            for(let j=1; j<=i; j++) {
+                n += i;
+            }
+            n += '\n';
         }
-        document.write("<br/>");
-        }
+        return n;
+    }
+    console.log(solution());
 }
 //수찍기4
 {
-    for(var i=5; i>=1; i--){
-        for(var j=i; j>=1; j--){
-        document.write(j);
-        
+    function solution() {
+        let n='';
+        for(let i=5; i>=1; i--) {
+            for(let j=1; j<=i; j++) {
+                n += i;
+            }
+            n += `\n`;
         }
-        document.write("<br/>");
-        }
+        return n;
+    }
+    console.log(solution());
 }
-//구구단
+//수찍기5
 {
-    for(var i=2; i<=9; i++){
-        for(var j=1; j<=9; j++){
-        document.write(i+"*"+j+"= "+i*j+" ");
+    function solution() {
+        let n = '';
+        for(let i=1; i<=5; i++) {
+            for(let j=5-i; j>=1; j--) {
+                n += ' ';
+            }
+            for(let k=1; k<=i*2-1; k++) {
+                n += k;
+            }
+            n += '\n';
         }
-        document.write("<br/>");
-        }
+        return n;
+    }
+    console.log(solution());
 }
-//구구단2 
+//수찍기6
 {
-    for(var i=1; i<=9; i++){
-        for(var j=2; j<=9; j++){
-        document.write(j+"*"+i+"= "+j*i+" ");
+function solution(a) {
+    let n ='';
+    for(let i=1; i<=a; i++) {
+        for(let j=1; j<=i; j++) {
+            n += i;
         }
-        document.write("<br/>");
+        n += '\n';
+    }
+    return n;
+}
+console.log(solution(9));
+}
+//별찍기 / n항만큼 트리모양
+{
+function solution(a) {
+    let n =a;
+    let result = '';
+    for(let i=1; i<=n; i++) {
+        for(let j=1; j<=n-i; j++) {
+            result += ' ';
         }
+        for(let k=1; k<=2*i-1; k++) {
+            result += '*';
+        }
+        result += '\n';
+    }
+    return result;
+}
+console.log(solution(6));
 }
