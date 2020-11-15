@@ -67,4 +67,48 @@
     }
     console.log(solution(10));
 }
+// 같은배열에 뒤집기
+{
+    function solution(n) {
+        let arr=[];
+        let temp;
+        for(let i=1; i<=n; i++) {
+            arr[i-1] = i;
+        }
+        let mid = Math.floor(n/2);
+        for(let j=1; j<=mid; j++) {
+            temp = arr[j-1];
+            arr[j-1] = arr[n-j];
+            arr[n-j] = temp;
+        }
+        return arr;
+    }
+    console.log(solution(5));
+}
+// 같은배열에 뒤집기 내장함수 사용
+{
+    function solution(n) {
+        let arr =[];
+        for(let i=1; i<=n; i++) {
+            arr[i-1] = i;
+        }
+        arr.reverse();
+        return arr;
+    }
+    console.log(solution(10));
+}
+// 배열 a 요소 왼쪽으로 한칸씩 원형으로 이동
+{
+    function solution(arr) {
+        let temp;
+        let array = arr;
+        temp = array[0];
+        for(let i=1; i<=array.length-1; i++) {
+            array[i-1] = array[i];
+        }
+        array[array.length-1] = temp;
+        return array;
+    }
+    console.log(solution([1,2,3,4,5]));
+}
 
