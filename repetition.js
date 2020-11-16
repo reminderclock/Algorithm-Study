@@ -437,5 +437,5 @@ function solution(a) {
     }
     return result;
 }
-console.log(solution(6));
+console.log(sonlution(6));
 }
