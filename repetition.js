@@ -319,7 +319,93 @@
     }
     console.log(solution());
 }
-
+// 1+2+4+7+11+16+22 수열
+// 1!+2!+3!+4!+....+n! 합
+{
+    function solution(n) {
+        let sum = 0;
+        for(let i=1; i<=n; i++) {
+            let num = 1;
+            for(let j=1; j<=i; j++) {
+                num = num*j;
+            }
+            sum += num;
+        }
+        return sum;
+    }
+    console.log(solution(4));
+    console.log(solution(3));
+}
+// 1 1+2 1+2+3 ~1+..n의 합
+{
+    function solution(n) {
+        let sum =0;
+        for(let i=1; i<=n; i++) {
+            let num =0;
+            for(let j=1; j<=i; j++) {
+                num += j;
+            }
+            sum += num;
+        }
+        return sum;
+    }
+    console.log(solution(4));
+    console.log(solution(3));
+}
+// 피보나치 수열 n항의 수는?
+{
+    function solution(n) {
+        let a =0;
+        let b =1;
+        let c=0;
+        let pibo = '';
+        pibo += `${a}${b}`;
+        for(let i=1; i<=n-2; i++) {
+            c = a+b;
+            pibo += `${c}`;
+            a = b;
+            b = c;
+        }
+        return pibo[pibo.length-1];
+    }
+    console.log(solution(5));
+    console.log(solution(10));
+}
+// 피보 입력항까지의 합
+{
+    function solution(n) {
+        let a=0;
+        let b=1;
+        let c =0;
+        let sum =0;
+        sum +=a+b;
+        for(let i=1; i<=n-2; i++) {
+            c = a+b;
+            sum += c;
+            a =b;
+            b =c;
+        }
+        return sum;
+    }
+    console.log(solution(3));
+    console.log(solution(4));
+    console.log(solution(5));
+}
+//계차수열 n항까지
+{
+    function solution(n) {
+        let a=1;
+        let get='';
+        get +=`${a} `;
+        for(let i=1; i<=n-1; i++){
+            a = a+i;
+            get +=`${a} `;
+        }
+        return get;
+    }
+    console.log(solution(5));
+    console.log(solution(10));
+}
 //구구단
 {
     function solution() {
@@ -437,5 +523,5 @@ function solution(a) {
     }
     return result;
 }
-console.log(sonlution(6));
+console.log(solution(6));
 }
