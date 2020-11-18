@@ -219,6 +219,55 @@
     console.log(solution(8,8));
     console.log(solution(17,8));
 }
+// 소수점 포함 2진수 10진수로 변환
+// a: 소수점 x b: 소수점이하
+{
+    function solution(a,b) {
+        let num1 = 0;
+        let num2 =0;
+        for(let i=0; i<=a.length-1; i++) {
+           num1+= a[a.length-1-i]*Math.pow(2,i);
+        }
+        for(let j=0; j<=b.length-1; j++){
+            num2 +=b[j]*Math.pow(2,-(j+1));
+        }
 
-
+        return num1+num2;
+}
+console.log(solution([1,0,1],[0,1]));
+console.log(solution([1,0,0],[1,1]));
+}
+// 7에 가장 가까운 수
+{
+    function solution(arr) {
+        let array=arr;
+        let min =Math.abs(array[0]-7);
+        let n =0;
+        let result=0;
+        for(let i=1; i<array.length; i++) {
+            n=Math.abs(array[i]-7);
+            if(min>n){
+                min = n;
+                result=array[i]
+            }
+        }
+        return result;
+    }
+    console.log(solution([1,6,22,44,78,3,4,56]));
+}
+{
+    function solution(arr) {
+        let array = arr;
+        array.push(7);
+        array.sort((a,b)=>a-b);
+        let n=0;
+        for(let i=0; i<array.length; i++) {
+            if(array[i]===7){
+                n=i;
+            }
+        }
+        return Math.abs(array[n-1]-7) < Math.abs(array[n+1]-7) ? array[n-1] : array[n+1];
+    }
+    console.log(solution([1,6,22,44,78,3,4,56]));
+}
 
