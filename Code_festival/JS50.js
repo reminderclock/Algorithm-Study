@@ -368,3 +368,294 @@
     }
     console.log(solution('pineapple is yummy','apple'));
 }
+
+// 31. 자바스크립트 자료형의 복잡도 ###자료형 시작복잡도
+// 배열 내장 함수의 시간 복작도가 O(1)이 아닌 것을 모두 고르시오.
+// arr[i], arr.push(5), arr.slice(), arr.pop(), arr.includes(5)
+// arr.slice(), arr.includes
+
+
+// 32. 문자열 만들기
+// 문자열 단어 갯수 출력
+// 입: '안녕 홍길동'
+// 출: 2
+{
+    function solution(a) {
+        return a.split(' ').length;
+    }
+    console.log(solution('안녕 홍길동'));
+}
+
+// 33. 거꾸로 출력하기
+// 입:  1 2 3 4 5
+// 출: 5 4 3 2 1
+{
+    function solution(a) {
+        return a.split(' ').reverse().join(' ')
+    }
+    console.log(solution('1 2 3 4 5'));
+}
+
+// 34. sort 구현하기####
+// 오름차순 YES  / else NO
+// 입력 175 39 2  42 
+// 출력 NO
+{
+    function solution(a) {
+        let temp = [];
+        for(let i=0; i<a.length; i++) {
+            temp.push(a[i]);
+        }
+        let sort = a.sort( (x,y)=>x-y);
+        return temp === sort ? 'yes' : 'no';
+    }
+    console.log(solution([175, 39, 2, 42]));
+}
+
+// 35. Factory 함수 사용하기 ###
+// 2제곱, 3제곱, 4제곱 할수 있는 Factory 함수 만들기
+// pass 에 코드 작성하여 two함수 완성하시오.
+{
+    function one(n) {
+        function two(value){
+           const sqr = Math.pow(value, n);
+           return sqr;
+        }
+        return two;
+    }
+
+    const a = one(2);
+    const b = one(3);
+    const c = one(4);
+
+    console.log(a(10));
+    console.log(b(10));
+    console.log(c(10));
+}
+
+// 36. 구구단 출력하기
+// 1~9 까지 하나 입력 하면 그 결과 출력
+// 입: 2
+// 출: 2 4 6 8 12 14 16 18
+{
+   function solution(n) {
+       let num='';
+       for(let i=1; i<=9; i++) {
+           num += n*i+' ';
+       }
+       return num;
+   }
+   console.log(solution(2));
+}
+
+// 37. 반장선거 ### reduce
+// 입: 원범 혜원 혜원 혜원 혜원 유진 유진
+// 출: 혜원(이)가 4표로 반장이 되었습니다.
+// reduce() 메서드는 배열의 각 요소에 대해 주어진 
+// 리듀서함수를 실행하고 ,하나의 결과값을 반환
+// 4개의 인자: 누산기, 현재값, 현재 인덱스, 원본 배열
+{      
+function solution(arr) {
+
+}
+
+
+// 38. 호준이의 아르바이트###
+// 1~3위 학생에게 사탕을 준다, 중복가능
+// 입: 97 86 75 66 55 97 85 97 97 95
+// 출: 6
+// sort, 
+{
+
+}
+
+// 39. 오타수정하기
+// 모든 q를 e로 바꾸는 프로그램 작성
+// 입: hqllo my namq is hyqwon
+// 출: hello my name is hyewon
+// 1. 함수사용
+// 2. 정규식사용
+ {
+
+    
+}
+
+// 40. 놀이동산에 가자
+// 총 몇명 탈수 있는 지 알수있는 프로그램 작성
+// 입: 50 제한 무게
+// 입: 5 사람 수
+// 입: 20 각 사람 몸무게
+// 입: 20
+//     20 
+//     20 
+//     20 
+// 출: 2
+{   
+
+}
+
+// 41. 소수판별
+// 숫자 주어지면 소수인지 아닌지 판별하는 프로그램 YES or NO
+{
+}
+
+// 42. 2020년#
+// 2020년 1월 1일은 수요일입니다. 2020년 a월 b일은 무슨요일일까요?
+// a, b를 입력 받아 2020년 a월 b일이 무슨요일인지 리턴하는 함수 solution 완성
+// 요일이름 SUN, MON, THE, WED, THU, FRI, SAT
+// a =5, b = 24라면 5월 24일은 일요일이므로 "SUN" 반환
+// 제한조건
+// 2020년은 윤년입니다.
+// 2020년 a월 b일은 실제로 있는 날입니다.
+// 13월 26일이나 2월 45일 같은 날짜는 주어지지 않습니다. 
+{
+    function solution(a,b) {
+        const day = ["MON","TUE","WEN","THU","FRI","SAT","SUN"];
+
+        const x = new Date(`2016-${a}-${b}`);
+
+        return day[x.getDay()];
+    }
+
+    solution(4,5);
+
+}
+
+{
+    function solution(array, commands) {
+        let answer = [];
+        for(let a=0; a<commands.length; a++) {
+            let i = commands[a][0];
+            let j = commands[a][1];
+            let k = commands[a][2];
+
+            let newArray = array
+            .slice(i-1, j)
+            .sort( (a,b) => a-b);
+            answer.push(newArray[k-1]);
+            
+        }
+        return console.log(answer);
+    }
+    solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]);
+}
+
+{
+    function solution(a,b) {
+        const day = ["MON","TUE","WEN","THU","FRI","SAT","SUN"];
+
+        const x = new Date(`2016-${a}-${b}`);
+        return day[x.getDay()];
+    }
+}
+
+// 43. 10진수를 2진수로 
+// 입: 10진수
+// 출: 2진수로
+{
+
+}
+
+// 44. 각 자리수의 합
+// 사용자가 입력한 양의 정수의 각 자리수의 합 구하는 프로그램 작성
+// 입: 18234
+// 출: 18
+{
+
+}
+
+// 45. getTime()함수 사용하기#
+// Date객체 메소드 중 하나인 getTime()은 1970년 1월 1일 0시 0분 0초 
+// 이후로 지금까지 흐른시간을 천분의 1초 단위(ms)로 반환합니다.
+// 이를 이용하여 현재 연도(2019)를 출력해보세요.
+{
+
+} 
+
+// 46. 각 자리수의 합2
+// 1부터 20까지의(20을 포함) 모든 숫자를 일력로 놓고 모든 자릿수의 총합을 구하세요.
+// 101112131415
+// 1+0+1+1.....
+{
+    let array = [];
+    let sum = 0;
+    for(let i=1; i<=20; i++){
+        array.push(i);
+        sum += i;
+    }
+    console.log(array.join(''));
+    console.log(sum);
+
+
+}
+
+// 47. set 자료형의 응용#
+// 중복데이터 삭제
+// 중복데이터 삭제, 실제 접수 명단이 몇명인지 
+// 중복 제거하여 실제 접수인원 출력
+{
+    // 객체표현식으로 생성
+    const people = {
+        이호준: "01050442903", 
+        이호상: "01051442904",
+        이상: "01058442904",
+        이호상: "01051442904",
+        이호상: "01051442904",
+        이준: "010991442904",
+        이호상: "01051442904",
+        이지상: "01050442904",
+        이호상: "01051442904"
+        
+    };
+    // set 생성
+    let result = new Set();
+    // people을 셋에 더한다. 
+    for(let key in people) {
+        result.add(people[key]);
+    }
+    console.log(result.size);
+}
+
+// 48. 대소문자 바꿔서 출력하기
+// 문자열이 주어지면 대문자와 소문자를 바꿔서 출력
+// 입: AAABBccdd
+// 출: aaabbCCDD
+{
+
+}
+
+// 49. 최댓값 구하기
+// 순서가 없는 10개의 숫자가 공백으로 구분되어 주어진다. 주어진 숫자들중 최댓값 반환
+// 입: 10 9 8 7 6 5 4 3 2 1
+// 출: 10
+{
+
+}
+
+// 50. 버블정렬 구현#
+// 두인접한 원소를 검사하여 정렬하는 방법을 말합니다.
+// 시간복잡도는 느리지만 코드가 단순하기 때문에 자주 사용
+// 아래 완성
+/*{
+    function bubble(arr) {
+        let result = arr.slice();
+
+        for(let i = 0; i < result.length-1; i++){
+            for(###){
+               // if(result[j] > result[j + 1]){
+                /####
+            }
+            }
+        }
+        return result;
+    }
+
+    const items = prompt('입력').split(' ').map((n) =>{
+        return parseInt(n, 10);
+    });
+    
+    console.log(bubble(items));
+
+
+    
+}*/
