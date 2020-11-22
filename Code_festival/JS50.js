@@ -455,7 +455,7 @@
 // 리듀서함수를 실행하고 ,하나의 결과값을 반환
 // 4개의 인자: 누산기, 현재값, 현재 인덱스, 원본 배열
 {      
-function solution(arr) {
+
 
 }
 
@@ -476,7 +476,16 @@ function solution(arr) {
 // 1. 함수사용
 // 2. 정규식사용
  {
-
+    function solution(n) {
+        let num =n.split('');
+        for(let i=0; i<num.length; i++) {
+            if(num[i]==='q') {
+                num[i] = 'e';
+            }
+        }
+        return num.join('');
+    }
+    console.log(solution('hqllo my namq is hyqwon'));
     
 }
 
@@ -497,6 +506,17 @@ function solution(arr) {
 // 41. 소수판별
 // 숫자 주어지면 소수인지 아닌지 판별하는 프로그램 YES or NO
 {
+    function solution(n) {
+        let cnt=0;
+        for(let i=1; i<=n; i++) {
+            if(n%i===0) {
+                cnt++;
+            }
+        }
+        return cnt===2 ? 'yes' : 'no';
+    }
+    console.log(solution(7));
+    console.log(solution(4));
 }
 
 // 42. 2020년#
@@ -553,7 +573,15 @@ function solution(arr) {
 // 입: 10진수
 // 출: 2진수로
 {
-
+    function solution(n) {
+        let result = [];
+        while(n>0){
+            result.push(n%2);
+            n = Math.floor(n/2);
+        }
+        return result.reverse().join('');
+    }
+    console.log(solution(8));
 }
 
 // 44. 각 자리수의 합
@@ -561,7 +589,15 @@ function solution(arr) {
 // 입: 18234
 // 출: 18
 {
-
+    function solution(n) {
+        let sum = 0;
+        let arr = n.split('');
+        for(let i=0; i<arr.length; i++) {
+            sum += parseInt(arr[i]);
+        }
+        return sum;
+    }
+    console.log(solution('18234'));
 }
 
 // 45. getTime()함수 사용하기#
@@ -621,7 +657,19 @@ function solution(arr) {
 // 입: AAABBccdd
 // 출: aaabbCCDD
 {
-
+    function solution(n) {
+        let arr = n.split('');
+        for(let i=0; i<arr.length; i++) {
+            if(arr[i]===arr[i].toUpperCase()){
+                arr[i] = arr[i].toLowerCase();
+            }
+            else {
+                arr[i] = arr[i].toUpperCase();
+            }
+        }
+        return arr.join('');
+    }
+    console.log(solution('AAABBccdd'));
 }
 
 // 49. 최댓값 구하기
@@ -629,33 +677,34 @@ function solution(arr) {
 // 입: 10 9 8 7 6 5 4 3 2 1
 // 출: 10
 {
-
+    function solution(arr) {
+        return Math.max(...arr);
+    }
+    console.log(solution([10,9,8,7,6,5,4,3,2,1]));
 }
 
 // 50. 버블정렬 구현#
 // 두인접한 원소를 검사하여 정렬하는 방법을 말합니다.
 // 시간복잡도는 느리지만 코드가 단순하기 때문에 자주 사용
 // 아래 완성
-/*{
-    function bubble(arr) {
-        let result = arr.slice();
+{
+    // function bubble(arr) {
+    //     let result = arr.slice();
 
-        for(let i = 0; i < result.length-1; i++){
-            for(###){
-               // if(result[j] > result[j + 1]){
-                /####
-            }
-            }
-        }
-        return result;
-    }
+    //     for(let i = 0; i < result.length-1; i++){
+    //         for(###){
+    //            // if(result[j] > result[j + 1]){
+    //             /####
+    //         }
+    //         }
+    //     }
+    //     return result;
+    // }
 
-    const items = prompt('입력').split(' ').map((n) =>{
-        return parseInt(n, 10);
-    });
+    // const items = prompt('입력').split(' ').map((n) =>{
+    //     return parseInt(n, 10);
+    // });
     
-    console.log(bubble(items));
-
-
+    // console.log(bubble(items));
     
-}*/
+}
