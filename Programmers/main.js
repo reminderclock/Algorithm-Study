@@ -28,3 +28,26 @@ function solution(s) {
     }
     console.log(solution('AZSDbssigqgta'));
 }
+// 수박수박수박...
+{
+    function solution(n) {
+        let result = '';
+        for(let i=0; i<n; i++){
+        if(result.length%2==0) {
+            result += '수';
+        }
+        else
+        result += '박';
+    }
+        return result;
+    }
+    console.log(solution(4));
+    console.log(solution(5));
+}
+{
+    function solution(n) {
+        return '수박'.repeat(n/2) + (n%2 === 1 ? '수':'');
+    }
+    console.log(solution(4));
+    console.log(solution(5));
+}

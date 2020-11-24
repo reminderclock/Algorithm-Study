@@ -253,5 +253,18 @@
     }
     solution(67875);
 }
+{
+    function solution(n) {
+        let num =n;
+        let newarr = [];
+        let arr = [50000,10000,5000,1000,500,100,50,10,1];
+        for(let i=0; i<arr.length; i++) {
+            newarr.push(Math.floor(num/arr[i]));
+            num = num%arr[i];
+        }
+        return newarr;
+    }
+    console.log(solution(50237));
+}
 
 
