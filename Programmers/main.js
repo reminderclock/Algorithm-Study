@@ -120,3 +120,80 @@ function solution(s) {
     }
     console.log(solution(["sun", "bed", "car"], 1));
 }
+//약수의합
+{
+    function solution(n) {
+        let result= 0;
+        for(let i=1; i<=n; i++) {
+            if(n%i===0) {
+                result += i;
+            }
+        }
+        return result;
+    }
+    console.log(solution(12));
+}
+//자릿수 더하기
+{
+    function solution(n) {
+        let num=String(n);
+        let result = 0;
+        for(let i=0; i<num.length; i++) {
+            result += parseInt(num[i]);
+        }
+        return result;
+    }
+    console.log(solution(123));
+}
+{
+    function solution(n) {
+        return String(n).split('').reduce((acc, curr) => acc + parseInt(curr),0);
+    }
+    console.log(solution(123));
+}
+{
+    function solution(s) {
+        let str = s.split(' ');
+        let word = [];
+        let sum =[];
+        for(let i=0; i<str.length; i++) {
+            word = [];
+            for(let j=0; j<str[i].length; j++) {
+                if(j%2===0){
+                    word.push((str[i][j]).toUpperCase());
+                }
+                else{
+                    word.push((str[i][j]).toLowerCase());
+                }
+            }
+            sum.push(word.join(''));
+        }
+        return sum.join(' ');
+    }
+    console.log(solution("try hello world"));
+}
+// 자연수 뒤집어서 배열로 만들기
+{
+    function solution(n) {
+        let num = String(n);
+        let result = [];
+        for(let i=num.length-1; i>=0; i--){
+            result.push(parseInt(num[i]));
+        }
+        return result;
+    }
+    console.log(solution(12345));
+}
+//정수 내림차순으로 배치하기
+{
+    function solution(n) {
+        let num = String(n);
+        let result = [];
+        for(let i=0; i<num.length; i++) {
+            result.push(parseInt(num[i]));
+        }
+        result.sort( (a,b) => (b-a));
+        return parseInt(result.join(''));
+    }
+    console.log(solution(118372));
+}
