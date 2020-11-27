@@ -175,8 +175,8 @@ function solution(s) {
 // 자연수 뒤집어서 배열로 만들기
 {
     function solution(n) {
-        let num = String(n);
-        let result = [];
+        const num = String(n);
+        const result = [];
         for(let i=num.length-1; i>=0; i--){
             result.push(parseInt(num[i]));
         }
@@ -196,4 +196,82 @@ function solution(s) {
         return parseInt(result.join(''));
     }
     console.log(solution(118372));
+}
+{
+    function solution(n) {
+        const num = String(n);
+        const result = num.split('').sort().join('');
+        return Number(result);
+    }
+    console.log(solution(118372));
+}
+// 시저암호
+{
+    function solution(s,n) {
+        let str = s;
+        let result = [];
+        let sum = [];
+        for(let i=0; i<s.length; i++) {
+            result.push(str.charCodeAt(i)+n);
+        }
+        for(let j=0; j<result.length; j++) {
+            if(result[j]>90 && result[j]-n<=90){
+                result[j] = result[j]-90+64;
+            }
+            else if(result[j]>122 && result[j]-n<=122){
+                result[j] = result[j]-122+96;
+            }
+            if(result[j]===32+n) {
+                result[j] = 32;
+            }
+            console.log(result[j]);
+            sum.push(String.fromCharCode(result[j]));
+        }
+
+        return sum.join('');
+    }
+    console.log(solution('a b',1));
+}
+// 짝수와 홀수
+{
+    function solution(n) {
+        return n%2 === 0 ? "Even" : "Odd";
+    }
+    console.log(solution(3));
+    console.log(solution(4));
+}
+//평균
+{
+    function solution(n) {
+        let result = 0;
+        for(let i=0; i<n.length; i++) {
+            result += n[i];
+        }
+        result = result/n.length;
+        return result;
+    }
+    console.log(solution([1,2,3,4]));
+}
+{
+    function solution(n) {
+        return n.reduce( (a,b) => a+b)/n.length;
+    }
+    console.log(solution([1,2,3,4]));
+}
+{
+    function solution(n) {
+        let result = 0;
+        for(let i=1; i<n; i++) {
+            if(Math.pow(i,2)===n) {
+                result = Math.pow(i+1,2);
+                break;
+            }
+        }
+        if(result===0) {
+            result = -1;
+        }
+        return result;
+    }
+    console.log(solution(121));
+    console.log(solution(3));
 }
