@@ -258,6 +258,7 @@ function solution(s) {
     }
     console.log(solution([1,2,3,4]));
 }
+// 정수제곱근 판별
 {
     function solution(n) {
         let result = 0;
@@ -274,4 +275,107 @@ function solution(s) {
     }
     console.log(solution(121));
     console.log(solution(3));
+}
+// 가장작은수 제거
+{
+    function solution(arr) {
+        let min = arr[0];
+        let index = 0;
+        for(let i=1; i<arr.length; i++) {
+            if(min>arr[i]) {
+                min = arr[i];
+                index = i;
+            }
+        }
+        arr.splice(index,1);
+        if(arr.length===0){
+            arr.push(-1);
+        }
+        return arr;
+    }
+    console.log(solution([4,3,2,1]));
+    console.log(solution([4,5,7,1,9]));
+    console.log(solution([10]));
+    console.log(solution([0]));
+}
+{
+    function solution(arr) {
+        if (arr.length === 1 ) {
+            return [-1]
+        }
+        const minValue = Math.min.apply(null, arr)
+        const index = arr.findIndex(value => value === minValue)
+        arr.splice(index, 1)
+        return arr
+    }
+}
+// 최대공약수, 최소공배수
+{
+    function solution(n, m) {
+        let result = [];
+        for(let i=Math.min(n,m); i>=1; i--) {
+            if(n%i===0 && m%i===0) {
+                result[0] = i;
+                break;
+            }
+        }
+        for(let j=Math.max(n,m); j<=n*m; j++) {
+            if(j%n===0 && j%m===0) {
+                result[1] = j;
+                break;
+            }
+        }
+        return result;
+    }
+    console.log(solution(3,12));
+    console.log(solution(2,5));
+}
+{
+    function solution(n) {
+        let cnt =0;
+        while(n>1) {
+        if(n%2===0) {
+            cnt++;
+            n = Math.floor(n/2);
+        }
+        else {
+            cnt++;
+            n = n*3+1;
+        }
+        if(cnt>=500) {
+            cnt = -1;
+            break;
+        }
+    }
+        return cnt;
+    }
+    console.log(solution(6));
+    console.log(solution(16));
+    console.log(solution(626331));
+}
+// 핸드폰 번호 가리기
+{
+    function solution(phone_number) {
+        let num = phone_number.split('');
+        for(let i=0; i<num.length-4; i++) {
+            num[i] = "*";
+        }
+        return num.join('');
+    }
+    console.log(solution('01033334444'));
+}
+//하샤드 수
+{
+    function solution(n) {
+        let num = String(n);
+        let sum =0;
+        for(let i=0; i<num.length; i++) {
+            sum += parseInt(num[i]);
+        }
+        return num%sum===0 ? true:false;
+    }
+    console.log(solution(10));
+    console.log(solution(12));
+    console.log(solution(11));
+    console.log(solution(13));
 }
