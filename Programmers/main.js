@@ -379,3 +379,221 @@ function solution(s) {
     console.log(solution(11));
     console.log(solution(13));
 }
+//x만큼 간격있는 n개의 숫자
+{
+    function solution(x,n) {
+        let arr =[];
+        let i=1;
+        while(arr.length!==n) {
+            arr.push(x*i);
+            i = i+1;
+        }
+        return arr;
+    }
+    console.log(solution(2,5));
+}
+{
+    function solution(x, n) {
+        let arr = [];
+        for(let i=1; i<=n; i++) {
+            arr.push(x*i);
+        }
+        return arr;
+    }
+    console.log(solution(2,5));
+    console.log(solution(-4,2));
+
+}
+function solution(x, n) {
+    return [...Array(n).keys()].map(v => (v + 1) * x);
+}
+// 행렬의 덧셈
+{
+    function solution(arr1, arr2) {
+        let array = [];
+        let newArray = [];
+        for(let i=0; i<arr1.length; i++) {
+            for(let j=0; j<arr1[i].length; j++) {
+                array.push(arr1[i][j]+arr2[i][j]);
+            }
+            newArray.push(array);
+            array = [];
+        }
+        return newArray;
+    }
+    console.log(solution([[1,2],[2,3]], [[3,4],[5,6]]));
+}
+function sumMatrix(A,B){
+    return A.map((a,i) => a.map((b, j) => b + B[i][j]));
+}
+{
+    function solution(n,m) {
+        let line ='';
+        for(let i =1; i<=m; i++) {
+            for(let j=1; j<=n; j++) {
+                line += '*';
+            }
+            line += '\n';
+        }
+        return line;
+    }
+    console.log(solution(5,3));
+}
+// 직사각형 별찍기
+{
+//     process.stdin.setEncoding('utf8'); 
+//     process.stdin.on('data', data => { 
+//         const n = data.split(" "); 
+//         const a = Number(n[0]), b = Number(n[1]); 
+//         for(let i=0; i<b; i++){ 
+//             let str = ""; 
+//         for(let j=0; j<a; j++){ 
+//             str = str + "*" 
+//         } 
+//         console.log(str) 
+//     } 
+// });
+
+}
+{
+//     process.stdin.setEncoding('utf8');
+// process.stdin.on('data', data => {
+//     const n = data.split(" ");
+//     const a = Number(n[0]), b = Number(n[1]);
+//     const row = '*'.repeat(a)
+//     for(let i =0; i < b; i++){
+//         console.log(row)
+//     }
+
+// });
+}
+//k번째수
+{
+    function solution(array, commands) {
+        let answer = [];
+        for(let a=0; a<commands.length; a++){
+            let i = commands[a][0];
+            let j = commands[a][1];
+            let k = commands[a][2];
+            
+            let newArray = array.slice(i-1, j);
+            newArray.sort((x,y) => x-y);
+            let result = newArray[k-1];
+            answer.push(result);
+        }
+        return answer;
+    }
+}
+//2016
+{
+    function solution(a,b) {
+        const day = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+
+        const x = new Date(`2016-${a}-${b}`);
+        return (day[x.getDay()]);
+    }
+}
+//가운데글자 가져오기
+{
+    function solution(a) {
+        let array = a.split('');
+        let len = array.length;
+        if(len % 2 ===0){
+            let even = array.slice((len/2)-1,len/2+1).join('');
+            return even;
+        }
+        else{
+            return array[Math.floor(len/2)];
+
+        }
+    }
+}
+//3진법 뒤집기
+{
+    function solution(a) {
+        let array = [];
+        let sum =0;
+        while(a > 0) {
+            array.push(a % 3);
+            a = Math.floor(a/3); 
+        }
+         console.log(array);
+        let lastIndex = array.length-1;
+        for(let i=0; i<= lastIndex; i++) {
+            sum += array[i]*Math.pow(3,lastIndex-i)
+        }
+    return sum;
+
+    }
+}
+// 같은 숫자는 싫어
+{
+    function solution(a) {
+        let newArray= [a[0]];
+        for(let i=1; i<a.length; i++){
+            if(a[i-1] !== a[i]){
+            newArray.push(a[i]);
+            }
+        }
+        return newArray;
+    }
+}
+// 나누어 떨어지는 숫자배열
+{
+    function solution(arr, divisor) {
+        let a=[];
+        let cnt =0;
+        for(let i=0; i<arr.length; i++) {
+            if(arr[i]%divisor===0) {
+                a.push(arr[i]);
+                cnt++;
+            }
+        }
+        a.sort( (x,y) => x-y);
+        return (cnt === 0 ? [-1] : a);
+    }
+}
+// 두정수의 합
+{
+    function solution(a,b) {
+        let array =[a,b].sort( (x,y) => x-y);
+        let sum = 0;
+        for(let i=array[0]; i<=array[1]; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+}
+// 문재열 내 p와 y의 개수
+{
+    function solution(s) {
+        let str = s.toLowerCase();
+        let p=0;
+        let y=0;
+        for(let i=0; i<str.length; i++){
+            if(str[i]=="p"){
+                p++;
+            }
+            else if(str[i]=="y"){
+                y++;
+            }
+        }
+        return p === y ? true : false;
+    }
+}
+// 소수찾기
+{
+    function solution(n) {
+        const suso= new Array(n).fill(true);
+        suso[0] = false;
+        for (let i = 2; i ** 2 <= n; i++) {
+          if (suso[i - 1] === true) {
+            for (let j = i ** 2; j <= n; j += i) {
+              suso[j - 1] = false;
+            }
+          }
+        }
+        return suso.filter((e) => e).length;
+      }
+}
+
