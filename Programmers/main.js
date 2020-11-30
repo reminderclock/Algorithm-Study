@@ -495,36 +495,56 @@ function sumMatrix(A,B){
 }
 //가운데글자 가져오기
 {
-    function solution(a) {
-        let array = a.split('');
-        let len = array.length;
-        if(len % 2 ===0){
-            let even = array.slice((len/2)-1,len/2+1).join('');
-            return even;
+    function solution(s) {
+        let centerString ='';
+        if(s.length%2===1) {
+            centerString = s[(s.length-1)/2];
         }
-        else{
-            return array[Math.floor(len/2)];
-
-        }
+        else 
+        centerString = s.slice((s.length/2)-1,(s.length/2)+1)
+        return centerString;
     }
+    console.log(solution('abcde'));
+    console.log(solution('qwer'));
+}
+{
+    function solution(s) {
+        const mid = Math.floor(s.length/2);
+        return s.length%2===1 ? s[mid] : s[mid-1]+s[mid];
+    }
+    console.log(solution('abcde'));
+    console.log(solution('qwer'));
+}
+{
+    function soluction(s) {
+        return s.substr(Math.ceil(s.length/2)-1,s.length % 2 === 0 ? 2 : 1);  
+    }
+    console.log(solution('abcde'));
+    console.log(solution('qwer'));
 }
 //3진법 뒤집기
 {
-    function solution(a) {
-        let array = [];
-        let sum =0;
-        while(a > 0) {
-            array.push(a % 3);
-            a = Math.floor(a/3); 
+    function solution(n) {
+        let arr = [];
+        let result = 0;
+        while(n>0) {
+            arr.push(n%3);
+            n = Math.floor(n/3);
         }
-         console.log(array);
-        let lastIndex = array.length-1;
-        for(let i=0; i<= lastIndex; i++) {
-            sum += array[i]*Math.pow(3,lastIndex-i)
+        for(let i=0; i<arr.length; i++) {
+            result += arr[arr.length-i-1]*Math.pow(3,i);
         }
-    return sum;
-
+        return result;
     }
+    console.log(solution(45));
+    console.log(solution(125));
+}
+{
+    const solution = (n) => {
+        return parseInt([...n.toString(3)].reverse().join(""), 3);
+    }
+    console.log(solution(45));
+    console.log(solution(125));
 }
 // 같은 숫자는 싫어
 {
@@ -537,6 +557,34 @@ function sumMatrix(A,B){
         }
         return newArray;
     }
+    console.log(solution([1,1,3,3,0,1,1]));
+    console.log(solution([4,4,4,3,3]));
+}
+{
+    function solution(a) {
+        let newArray= [a[0]];
+        for(let i=1; i<a.length; i++){
+            if(a[i-1] === a[i]){
+            continue;
+            }
+            newArray.push(a[i]);
+        }
+        return newArray;
+    }
+}
+{
+    function solution(arr) {
+        let array = [];
+        for(let i=0; i<arr.length; i++) {
+            if(array[array.length-1]===arr[i]) {
+                continue;
+            }
+            array.push(arr[i]);
+        }
+        return array;
+    }
+    console.log(solution([1,1,3,3,0,1,1]));
+    console.log(solution([4,4,4,3,3]));
 }
 // 나누어 떨어지는 숫자배열
 {
@@ -553,6 +601,23 @@ function sumMatrix(A,B){
         return (cnt === 0 ? [-1] : a);
     }
 }
+{
+    function solution(arr, divisor) {
+        let array = [];
+        arr.sort( (a,b) => a-b);
+        for(let i=0; i<arr.length; i++) {
+            if(arr[i]%divisor===0) {
+                array.push(arr[i]);
+            }
+        }
+        if(array.length===0){
+            array.push(-1);
+        }
+        return array;
+    }
+    console.log(solution([10,9,7,5],5));
+    console.log(solution([3,2,6],10));
+}
 // 두정수의 합
 {
     function solution(a,b) {
@@ -564,22 +629,37 @@ function sumMatrix(A,B){
         return sum;
     }
 }
+{
+    function solution(a,b) {
+        let min = Math.min(a,b);
+        let max = Math.max(a,b);
+        let sum = 0;
+        for(let i=min; i<=max; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+    console.log(solution(3,5));
+    console.log(solution(3,3));
+}
 // 문재열 내 p와 y의 개수
 {
     function solution(s) {
         let str = s.toLowerCase();
-        let p=0;
-        let y=0;
-        for(let i=0; i<str.length; i++){
-            if(str[i]=="p"){
-                p++;
+        let pCnt = 0;
+        let yCnt =0;
+        for(let i=0; i<str.length; i++) {
+            if(str[i]==='p'){
+                pCnt++;
             }
-            else if(str[i]=="y"){
-                y++;
+            else if(str[i]==='y') {
+                yCnt++;
             }
         }
-        return p === y ? true : false;
+        return pCnt===yCnt ? true : false;
     }
+    console.log(solution('pPoooyY'));
+    console.log(solution('Pyy'));
 }
 // 소수찾기
 {
@@ -587,13 +667,14 @@ function sumMatrix(A,B){
         const suso= new Array(n).fill(true);
         suso[0] = false;
         for (let i = 2; i ** 2 <= n; i++) {
-          if (suso[i - 1] === true) {
+        if (suso[i - 1] === true) {
             for (let j = i ** 2; j <= n; j += i) {
-              suso[j - 1] = false;
+            suso[j - 1] = false;
             }
-          }
+        }
         }
         return suso.filter((e) => e).length;
-      }
+    }
 }
+
 
