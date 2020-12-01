@@ -676,5 +676,54 @@ function sumMatrix(A,B){
         return suso.filter((e) => e).length;
     }
 }
+{
+    function solution(n) {
+        let arr=[];
+        let cnt =0;
+        for(let i=0; i<=n; i++) {
+            arr[i]=0;
+        }
+        for(let k=2; k<=n; k++) {
+            if(arr[k]===0) {
+                for(let j=k*2; j<=n; j=j+1) {
+                    arr[j] =1;
+                }
+            }
+        }
+        for(let o=2; o<=n; o++) {
+            if(arr[o]===0) {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+    console.log(solution(10));
+    console.log(solution(5));
+}
+// 크레인 인형뽑기
+{
+    function solution(board, moves) {
+        let result = [];
+        let cnt=0;
+            for(let i=0; i<moves.length; i++) {
+                for(let j=0; j<board.length; j++) {
+                    if(board[j][moves[i]-1]!==0) {
+                    result.push(board[j][moves[i]-1]);                  
+                    board[j][moves[i]-1] = 0;
+                    break;
+                    }
+                }
+            }
+                for(let k=0; k<result.length; k++) {
+                    if(result[k-1]===result[k]) {
+                        result.splice(k-1,2);
+                        k=1;
+                        cnt = cnt +2;
+                    }
+                }
 
+        return result;
+    }
+    console.log(solution([[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]],[1,5,3,5,1,2,1,4]));
+}
 
