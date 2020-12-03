@@ -740,3 +740,109 @@ function sumMatrix(A,B){
     }
     console.log(solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']));
 }
+{
+    function solution(participant, completion) {
+        participant.sort();
+        completion.sort();
+
+        for(let i=0; i<participant.length; i++) {
+            if(participant[i]!==completion[i]) {
+                return participant[i];
+            }
+        }
+    }
+    console.log(solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']));
+}
+// 내적 
+{
+    function solution(a, b) {
+        let sum = 0;
+        for(let i=0; i<a.length; i++) {
+           sum = sum + a[i]*b[i];
+        }
+        return sum;
+    }
+    console.log(solution([1,2,3,4],[-3,-1,0,2]));
+}
+{
+var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
+}
+// 모의고사
+{
+    function solution(answer) {
+        let one = [1,2,3,4,5];
+        let two = [2,1,2,3,2,4,2,5];
+        let three = [3,3,1,1,2,2,4,4,5,5];
+        let group = [one, two, three];
+        let result = [];
+        let sum = [];
+        let max =0;
+        for(let i=0; i<group.length; i++) {
+            for(let j=0; j<group[i].length; j++) {
+                if(group[i].length>=answer.length) {
+                    break;
+                }
+                group[i].push(group[i][j]);
+                if(j===group[i].length) {
+                    j=0;
+                }
+            }
+        }
+        for(let d=0; d<group.length; d++) {
+            let cnt=0;
+            for(let e=0; e<answer.length; e++) {
+                if(group[d][e]===answer[e]) {
+                    cnt++;
+                }
+            }
+            result.push(cnt);
+            if(max<cnt) {
+                max = cnt;
+            }
+            
+        }
+        for(let s=0; s<3; s++) {
+            if(max===result[s]) {
+                sum.push(s+1);
+            }
+        }
+        return sum.sort();
+    }
+    console.log(solution([1,2,3,4,5,1,1,1,1,1,1,1,1,1,1,1]));
+    console.log(solution([1,3,2,4,2]));
+    console.log(solution([1,2,3,4,5]));
+    console.log(solution([2]));
+
+}
+// 두개 뽑아서 더하기
+{
+    function solution(numbers) {
+        let result = [];
+        for(let i=0; i<numbers.length-1; i++) {
+            for(let j=i+1; j<numbers.length; j++) {
+                if(result.includes(numbers[i]+numbers[j])){
+                    continue;
+                }
+                result.push(numbers[i]+numbers[j]);
+            }
+        }
+        return result.sort( (a,b) => a-b);
+    }
+    console.log(solution([2,1,3,4,1]));
+}
+{
+    function solution(d, budget) {
+        let budgets = budget;
+        let cnt=0;
+        d.sort( (a,b) => a-b);
+        for(let i=0; i<d.length; i++) {
+            budgets = budgets - d[i];
+            if(budgets<0) {
+                break;
+            }
+            cnt++;
+        }
+        return cnt;
+    }
+    console.log(solution([1,3,2,5,4],9));
+}
