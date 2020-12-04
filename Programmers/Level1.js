@@ -846,3 +846,85 @@ var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
     }
     console.log(solution([1,3,2,5,4],9));
 }
+// 키패드 누르기
+{
+    function solution(numbers, hand) {
+        let arrayL = [10];
+        let arrayR = [12];
+        let result = '';
+        const l =[1,4,7,10];
+        const r = [3,6,9,12];
+        const m = [2,5,8,11];
+        const one = [1, 3];
+        const two = [2, 4, 6];
+        const three = [5, 7, 9];
+        const four = [8, 10];
+        const num = numbers;
+        for(let i=0; i<num.length; i++) {
+            if(num[i]===0) {
+                num[i] = 11;
+            }
+            let lDistance=Math.abs(num[i]-arrayL[arrayL.length-1]);
+            let rDistance=Math.abs(num[i]-arrayR[arrayR.length-1]);
+            if(l.includes(num[i])===true) {
+                arrayL.push(numbers[i]);
+                result += "L";
+            }
+            else if(r.includes(num[i])===true) {
+                arrayR.push(num[i]);
+                result += "R";
+            }
+            else {
+                if(arrayL[arrayL-1]===10) {
+                    lDistance = 10;
+                }
+                if(arrayR[arrayR.length-1]===12){
+                    rDistance = 12;
+                }
+                if((one.includes(lDistance) && one.includes(rDistance))===true || (two.includes(lDistance) && two.includes(rDistance))===true || (three.includes(lDistance) && three.includes(rDistance))===true || (four.includes(lDistance) && four.includes(rDistance))===true) {
+                    if(hand === "left") {
+                        arrayL.push(num[i]);
+                        result += "L";
+                    }
+                    else {
+                        arrayR.push(num[i]);
+                        result += "R";
+                    }
+                }
+                else if(one.includes(lDistance)===true) {
+                    arrayL.push(num[i]);
+                    result += "L";
+                }
+                else if(two.includes(lDistance)===true) {
+                    if(one.includes(rDistance)===true) {
+                        arrayR.push(num[i]);
+                        result += "R";
+                    }
+                    else {
+                        arrayL.push(num[i]);
+                        result += "L";
+                    }
+                }
+                else if(three.includes(lDistance)===true) {
+                    if(four.includes(rDistance)===true) {
+                        arrayL.push(num[i]);
+                        result += "L";
+                    }
+                    else {
+                        arrayR.push(num[i]);
+                        result += "R";
+                    }
+                }
+                else if(four.includes(lDistance)===true) {
+                    arrayR.push(num[i]);
+                    result += "R";
+                }
+                
+            }
+        }
+        return result;
+    }
+    console.log(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5],"right"));
+    console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2],"left"));
+    console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],"right"));
+}
