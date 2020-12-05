@@ -859,7 +859,14 @@ var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
         const two = [2, 4, 6];
         const three = [5, 7, 9];
         const four = [8, 10];
-        const num = numbers;
+        let num=[];
+        for(let j=0; j<numbers.length; j++) {
+            if(numbers[j]>9 || numbers[j]<0){
+                continue;
+            }
+            num.push(numbers[j]);
+        }
+
         for(let i=0; i<num.length; i++) {
             if(num[i]===0) {
                 num[i] = 11;
@@ -875,12 +882,12 @@ var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
                 result += "R";
             }
             else {
-                if(arrayL[arrayL-1]===10) {
-                    lDistance = 10;
-                }
-                if(arrayR[arrayR.length-1]===12){
-                    rDistance = 12;
-                }
+                // if(arrayL[arrayL.length-1]===10) {
+                //     num[i] = 10;
+                // }
+                // if(arrayR[arrayR.length-1]===12){
+                //     num[i] = 12;
+                // }
                 if((one.includes(lDistance) && one.includes(rDistance))===true || (two.includes(lDistance) && two.includes(rDistance))===true || (three.includes(lDistance) && three.includes(rDistance))===true || (four.includes(lDistance) && four.includes(rDistance))===true) {
                     if(hand === "left") {
                         arrayL.push(num[i]);
@@ -923,6 +930,65 @@ var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
             }
         }
         return result;
+    }
+    console.log(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5],"right"));
+    console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2],"left"));
+    console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],"right"));
+}
+// 비밀지도
+{
+
+}
+// 실패율
+{
+
+}
+ // 다트게임 
+{
+
+}
+// 체육복 
+// reduce
+{
+    function solution(n, lost, reserve) {
+        let num = [];
+        let sum = lost.concat(reserve).sort( (a,b) => a-b);
+        for(let i=1; i<sum.length; i++) {
+            if(sum[i-1]===sum[i]-1) {
+                sum.splice(i,1);
+                i=1;
+                continue;
+            }
+            num.push(sum[i-1]);
+        }
+        return n-num.length;
+
+    }
+    console.log(solution(5,[2,4],[1,3,5]));
+    console.log(solution(5,[2,4],[3]));
+    console.log(solution(3,[3],[1]));
+}
+{
+    function solution(n, lost, reserve) {
+        var realLost = lost.filter(a => !reserve.includes(a));
+        var realReserve = reserve.filter(a => !lost.includes(a));
+        
+        return n - realLost.filter(a => {
+            var b = realReserve.find(r => Math.abs(r-a) <= 1);
+            if(!b) return true;
+            realReserve = realReserve.filter(r => r !== b);
+        }).length;
+    }
+}
+{
+    function solution(numbers, hand) {
+        const keyBoard = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+            ["*", 0, "#"]
+        ];
+        return
     }
     console.log(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5],"right"));
     console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2],"left"));
