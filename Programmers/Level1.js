@@ -935,6 +935,27 @@ var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
     console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2],"left"));
     console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],"right"));
 }
+{
+    function solution(numbers, hand) {
+        return numbers.reduce((ac, v)=>{
+            switch(v) {
+                case 1: case 4: case 7: return {a:ac.a+"L", l:v, r:ac.r};
+                case 3: case 6: case 9: return {a:ac.a+"R", l:ac.l, r:v};
+                default : 
+                    if(v==0) v=11;
+                    var ld = getDist(v, ac.l);
+                    var rd = getDist(v, ac.r);
+                    return ld > rd ? {a:ac.a+"R", l:ac.l, r:v} : 
+                        ld < rd ? {a:ac.a+"L", l:v, r:ac.r} : 
+                        hand == "right" ? {a:ac.a+"R", l:ac.l, r:v} : {a:ac.a+"L", l:v, r:ac.r};
+            }
+        }, {a:"", l:10, r:12}).a;
+    }
+    function getDist(n, h) {
+        var t = Math.abs(n-h);
+        return parseInt(t/3 + t%3);
+    }
+}
 // 비밀지도
 {
 
@@ -945,29 +966,44 @@ var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
 }
  // 다트게임 
 {
-
+    function solution(dartResult) {
+        let answer = 0;
+        let numArr = [];
+        for (let i=0; i<dartResult.length; i=i+2){
+            let point;
+            if(i+1<dartResult.length && dartResult[i+1] === '0'){
+                point = 10;
+                i++
+            }else{
+                point = parseInt(dartResult[i]); 
+            }
+            let bonus = dartResult[i+1];
+            if(bonus === 'D'){
+                point *= point;   
+            }else if (bonus === 'T'){
+                point *= point*point;
+            }
+            if(i+2<dartResult.length && dartResult[i+2] === '*'){
+                point *= 2;
+                if(numArr.length !==0){
+                    numArr[numArr.length-1] *= 2;
+                }
+                i++
+            }else if (i+2<dartResult.length && dartResult[i+2] === '#'){
+                point *= -1;   
+                i++;
+            }
+            numArr.push(point);
+        }
+        console.log(numArr);
+        for (let i=0; i<numArr.length; i++){
+            answer += numArr[i];
+        }
+        return answer;      
+    }
 }
 // 체육복 
 // reduce
-{
-    function solution(n, lost, reserve) {
-        let num = [];
-        let sum = lost.concat(reserve).sort( (a,b) => a-b);
-        for(let i=1; i<sum.length; i++) {
-            if(sum[i-1]===sum[i]-1) {
-                sum.splice(i,1);
-                i=1;
-                continue;
-            }
-            num.push(sum[i-1]);
-        }
-        return n-num.length;
-
-    }
-    console.log(solution(5,[2,4],[1,3,5]));
-    console.log(solution(5,[2,4],[3]));
-    console.log(solution(3,[3],[1]));
-}
 {
     function solution(n, lost, reserve) {
         var realLost = lost.filter(a => !reserve.includes(a));
@@ -981,16 +1017,41 @@ var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
     }
 }
 {
-    function solution(numbers, hand) {
-        const keyBoard = [
-            [1, 2, 3],
-            [4, 5, 6],
-            [7, 8, 9],
-            ["*", 0, "#"]
-        ];
-        return
+    function solution(n, lost, reserve) {
+        let realReserve = reserve.filter(r => !lost.includes(r));
+        let realLost = lost.filter(r => !reserve.includes(r));
+    
+        for(let i=0; i<realReserve.length; i++) {
+            for(let j=0; j<realLost.length; j++) {
+                if(Math.abs(realReserve[i]-realLost[j])===1) {
+                    realLost.splice(j,1);
+                    realReserve.splice(i,1);
+                    j=0;
+                    i=0;
+                }
+            }
+        }
+        return n-realLost.length;
     }
-    console.log(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5],"right"));
-    console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2],"left"));
-    console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],"right"));
+    console.log(solution(5,[2,4],[1,3,5]));
+    console.log(solution(5,[2,4],[3]));
+    console.log(solution(3,[3],[1]));
+    console.log(solution(7, [2, 3, 4], [2, 3, 4]));
+}
+{
+    function solution(n, lost, reserve) {
+        const realReserve = reserve.filter(r => !lost.includes(r));
+        const realLost = lost.filter(r => !reserve.includes(r));
+    
+        const ableNum = realLost.filter(a => {
+            return realReserve.find((b, i) => {
+                const has = b === a-1 || b === a+1;
+                if (has) {
+                    delete realReserve[i];
+                }
+                return has;
+            });
+        }).length;
+        return n - (realLost.length - ableNum);
+    }
 }
