@@ -21,9 +21,9 @@
 }
 // 3. 변수의 타입
 // 출력값으로 옳은 것은?
- {
+{
     var arr = [100, 200, 300];
-    console.log(typeof(arr));
+    console.log(typeof (arr));
 }
 // 4. 변수의 타입2
 // typeof(a) 출력값과 알맞지 않은 것은
@@ -37,10 +37,10 @@
     var a = 10;
     var b = 2;
 
-    for(var i=1; i<5; i+=2){
+    for (var i = 1; i < 5; i += 2) {
         a += i;
     }
-    console.log(a+b);
+    console.log(a + b);
 }
 // 6. true인것 하나있음.
 // NaN, 1, "", 0, undefined // 1
@@ -56,9 +56,9 @@
         'weight': 78,
         'weight': 84,
         'temperature': 36,
-        'eyesight':1
+        'eyesight': 1
     };
-     console.log(d['weight']);
+    console.log(d['weight']);
 }
 
 // 9. concat을 활용한 출력방법
@@ -82,16 +82,16 @@
 
 {
     function solution(n) {
-        let result='';
-        for(let i=1; i<=n; i++) {
+        let result = '';
+        for (let i = 1; i <= n; i++) {
             let tree = '';
-            for(let j=n-i; j>=0; j--){
+            for (let j = n - i; j >= 0; j--) {
                 tree += ' ';
             }
-            for(let k=1; k<=2*i-1; k++){
+            for (let k = 1; k <= 2 * i - 1; k++) {
                 tree += '*';
             }
-            result += tree+'\n';
+            result += tree + '\n';
         }
         return result;
     }
@@ -102,8 +102,8 @@
 // 1~100 모두 더하는 코드 완성
 {
     let s = 0;
-    for(let i = 1; i <= 100; i++){
-        s +=i;
+    for (let i = 1; i <= 100; i++) {
+        s += i;
     }
     console.log(s)
 }
@@ -113,13 +113,13 @@
 // '파이어볼'이 출력되게 만드시오.
 {
     // 여기에 클래스작성
-    class Wizard{
+    class Wizard {
         constructor(health, mana, armor) {
             this.health = health;
             this.mana = mana;
             this.armor = armor;
         }
-        attack(){
+        attack() {
             console.log('파이어볼');
         }
     }
@@ -142,8 +142,8 @@
 
 {
     function solution(a) {
-        const planet=['수','금','지','화','목','토','천','해'];
-        return planet[a-1];
+        const planet = ['수', '금', '지', '화', '목', '토', '천', '해'];
+        return planet[a - 1];
     }
     console.log(solution(1));
     console.log(solution(2));
@@ -152,14 +152,14 @@
 
 // 14. 3의 배수인가요?
 // 3의 배수이면 박수를 출력, 아니면 숫자 출력
-{   
+{
     function solution(n) {
-        let num=0;
-        if(n%3===0) {
+        let num = 0;
+        if (n % 3 === 0) {
             num = '짝';
         }
-        else{
-        num=n;
+        else {
+            num = n;
         }
         return num;
     }
@@ -184,11 +184,11 @@
 // 입: 거꾸로
 // 출: 로꾸거
 {
- function solution(str) {
-     let newstr = str.split('').reverse().join('');
-     return newstr;
- }
- console.log(solution('로꾸꺼'));
+    function solution(str) {
+        let newstr = str.split('').reverse().join('');
+        return newstr;
+    }
+    console.log(solution('로꾸꺼'));
 
 }
 // 17. 놀이기구 키제한
@@ -196,20 +196,20 @@
 // 입력 : 키
 // 출력 : yes or no
 {
- function solution(height) {
-     return height>=150 ? 'yes' : 'no';
- }
- console.log(solution(169));   
- console.log(solution(140));   
+    function solution(height) {
+        return height >= 150 ? 'yes' : 'no';
+    }
+    console.log(solution(169));
+    console.log(solution(140));
 }
 // 18. 평균 점수
 // 입력: 20, 30, 40
 // 출력: 30
 {
-    function solution(a,b,c) {
-        let sum=0;
-        sum = a+b+c;
-        return (sum/3);
+    function solution(a, b, c) {
+        let sum = 0;
+        sum = a + b + c;
+        return (sum / 3);
     }
     console.log(solution(20, 30, 40));
 }
@@ -218,21 +218,21 @@
 // 출력: a^b
 {
     function solution(a, b) {
-        return Math.pow(a,b);
+        return Math.pow(a, b);
     }
-    console.log(solution(4,5));
+    console.log(solution(4, 5));
 }
 
 // 20. 몫과 나머지
 // 입력 : 10 2
 // 출력 : 5 0
 {
-    function solution(a,b) {
-        let value = Math.floor(a/b);
-        let left = a%b;
+    function solution(a, b) {
+        let value = Math.floor(a / b);
+        let left = a % b;
         return `${value},${left}`;
     }
-    console.log(solution(10,2));
+    console.log(solution(10, 2));
 }
 
 // 21. set 만드는 방법###
@@ -247,18 +247,18 @@
 // 22. 배수인지 확인하기
 // a: 지정수 b: a의 배수인지 확인하는 수
 {
-    function solution(a,b) {
-        let result=0;
-        return b%a===0 ? true : false;
+    function solution(a, b) {
+        let result = 0;
+        return b % a === 0 ? true : false;
     }
-    console.log(solution(2,10));
-    console.log(solution(3,10));
+    console.log(solution(2, 10));
+    console.log(solution(3, 10));
 }
 
 // 23. ox문제
 //console.log(10/3); ??
 {
-    console.log(10/3);
+    console.log(10 / 3);
 }
 
 // 24. 전부 대문자로 바꿔주세요
@@ -276,7 +276,7 @@
 // 출력 : 원넓이
 {
     function solution(r) {
-        return Math.PI*Math.pow(r,r);
+        return Math.PI * Math.pow(r, r);
     }
     console.log(solution(2));
 }
@@ -289,7 +289,7 @@
 // 매치 출력
 {
     function solution(a) {
-        const planet={
+        const planet = {
             '수성': 'mer',
             '금성': 'ven',
             '지구': 'Ear',
@@ -309,15 +309,15 @@
 // 입 a: ['유진', '정민']
 // 입 b: [30, 90]
 // 출: {'유진': 30, '정민':90}
-{      
-    function solution(key,value) {
-        const obj={};
-        for(let i=0; i<key.length; i++) {
+{
+    function solution(key, value) {
+        const obj = {};
+        for (let i = 0; i < key.length; i++) {
             obj[key[i]] = value[i];
         }
         return obj;
     }
-    console.log(solution(['유진','정민'],[30,90]));
+    console.log(solution(['유진', '정민'], [30, 90]));
 
 }
 
@@ -335,9 +335,9 @@
 // p t 
 {
     function solution(a) {
-        let result='';
-        for(let i=0; i<a.length-1; i++) {
-            result += `${a[i]} ${a[i+1]}`+ '\n';
+        let result = '';
+        for (let i = 0; i < a.length - 1; i++) {
+            result += `${a[i]} ${a[i + 1]}` + '\n';
         }
         return result;
     }
@@ -347,11 +347,11 @@
 // 29. 대문자만 지나가세요
 // 알파벳 하나만 입력 대문자-> YES / 아니면 NO
 {
-   function solution(a) {
-       return a===a.toUpperCase() ? 'YES' : 'NO';
-   }
-   console.log(solution('m'));
-   console.log(solution('M'));
+    function solution(a) {
+        return a === a.toUpperCase() ? 'YES' : 'NO';
+    }
+    console.log(solution('m'));
+    console.log(solution('M'));
 
 }
 
@@ -362,11 +362,11 @@
 // 출력 4
 // indexOf() 주어진 값과 일치하는 첫번째 인덱스 반환
 {
-    function solution(a,b) {
+    function solution(a, b) {
 
         return a.indexOf(b);
     }
-    console.log(solution('pineapple is yummy','apple'));
+    console.log(solution('pineapple is yummy', 'apple'));
 }
 
 // 31. 자바스크립트 자료형의 복잡도 ###자료형 시작복잡도
@@ -403,10 +403,10 @@
 {
     function solution(a) {
         let temp = [];
-        for(let i=0; i<a.length; i++) {
+        for (let i = 0; i < a.length; i++) {
             temp.push(a[i]);
         }
-        let sort = a.sort( (x,y)=>x-y);
+        let sort = a.sort((x, y) => x - y);
         return temp === sort ? 'yes' : 'no';
     }
     console.log(solution([175, 39, 2, 42]));
@@ -417,9 +417,9 @@
 // pass 에 코드 작성하여 two함수 완성하시오.
 {
     function one(n) {
-        function two(value){
-           const sqr = Math.pow(value, n);
-           return sqr;
+        function two(value) {
+            const sqr = Math.pow(value, n);
+            return sqr;
         }
         return two;
     }
@@ -438,14 +438,14 @@
 // 입: 2
 // 출: 2 4 6 8 12 14 16 18
 {
-   function solution(n) {
-       let num='';
-       for(let i=1; i<=9; i++) {
-           num += n*i+' ';
-       }
-       return num;
-   }
-   console.log(solution(2));
+    function solution(n) {
+        let num = '';
+        for (let i = 1; i <= 9; i++) {
+            num += n * i + ' ';
+        }
+        return num;
+    }
+    console.log(solution(2));
 }
 
 // 37. 반장선거 ### reduce
@@ -454,9 +454,12 @@
 // reduce() 메서드는 배열의 각 요소에 대해 주어진 
 // 리듀서함수를 실행하고 ,하나의 결과값을 반환
 // 4개의 인자: 누산기, 현재값, 현재 인덱스, 원본 배열
-{      
+{
 
-
+    const items = ["Widget", "Gadget"];
+    const prices = [9.95, 22.95];
+    const cart = items.map((x, i) => ({ name: x, price: prices[i] }));
+    console.log(cart);
 }
 
 
@@ -475,18 +478,18 @@
 // 출: hello my name is hyewon
 // 1. 함수사용
 // 2. 정규식사용
- {
+{
     function solution(n) {
-        let num =n.split('');
-        for(let i=0; i<num.length; i++) {
-            if(num[i]==='q') {
+        let num = n.split('');
+        for (let i = 0; i < num.length; i++) {
+            if (num[i] === 'q') {
                 num[i] = 'e';
             }
         }
         return num.join('');
     }
     console.log(solution('hqllo my namq is hyqwon'));
-    
+
 }
 
 // 40. 놀이동산에 가자
@@ -499,7 +502,7 @@
 //     20 
 //     20 
 // 출: 2
-{   
+{
 
 }
 
@@ -507,13 +510,13 @@
 // 숫자 주어지면 소수인지 아닌지 판별하는 프로그램 YES or NO
 {
     function solution(n) {
-        let cnt=0;
-        for(let i=1; i<=n; i++) {
-            if(n%i===0) {
+        let cnt = 0;
+        for (let i = 1; i <= n; i++) {
+            if (n % i === 0) {
                 cnt++;
             }
         }
-        return cnt===2 ? 'yes' : 'no';
+        return cnt === 2 ? 'yes' : 'no';
     }
     console.log(solution(7));
     console.log(solution(4));
@@ -529,31 +532,31 @@
 // 2020년 a월 b일은 실제로 있는 날입니다.
 // 13월 26일이나 2월 45일 같은 날짜는 주어지지 않습니다. 
 {
-    function solution(a,b) {
-        const day = ["MON","TUE","WEN","THU","FRI","SAT","SUN"];
+    function solution(a, b) {
+        const day = ["MON", "TUE", "WEN", "THU", "FRI", "SAT", "SUN"];
 
         const x = new Date(`2016-${a}-${b}`);
 
         return day[x.getDay()];
     }
 
-    solution(4,5);
+    solution(4, 5);
 
 }
 
 {
     function solution(array, commands) {
         let answer = [];
-        for(let a=0; a<commands.length; a++) {
+        for (let a = 0; a < commands.length; a++) {
             let i = commands[a][0];
             let j = commands[a][1];
             let k = commands[a][2];
 
             let newArray = array
-            .slice(i-1, j)
-            .sort( (a,b) => a-b);
-            answer.push(newArray[k-1]);
-            
+                .slice(i - 1, j)
+                .sort((a, b) => a - b);
+            answer.push(newArray[k - 1]);
+
         }
         return console.log(answer);
     }
@@ -561,8 +564,8 @@
 }
 
 {
-    function solution(a,b) {
-        const day = ["MON","TUE","WEN","THU","FRI","SAT","SUN"];
+    function solution(a, b) {
+        const day = ["MON", "TUE", "WEN", "THU", "FRI", "SAT", "SUN"];
 
         const x = new Date(`2016-${a}-${b}`);
         return day[x.getDay()];
@@ -575,9 +578,9 @@
 {
     function solution(n) {
         let result = [];
-        while(n>0){
-            result.push(n%2);
-            n = Math.floor(n/2);
+        while (n > 0) {
+            result.push(n % 2);
+            n = Math.floor(n / 2);
         }
         return result.reverse().join('');
     }
@@ -592,7 +595,7 @@
     function solution(n) {
         let sum = 0;
         let arr = n.split('');
-        for(let i=0; i<arr.length; i++) {
+        for (let i = 0; i < arr.length; i++) {
             sum += parseInt(arr[i]);
         }
         return sum;
@@ -606,7 +609,7 @@
 // 이를 이용하여 현재 연도(2019)를 출력해보세요.
 {
 
-} 
+}
 
 // 46. 각 자리수의 합2
 // 1부터 20까지의(20을 포함) 모든 숫자를 일력로 놓고 모든 자릿수의 총합을 구하세요.
@@ -615,7 +618,7 @@
 {
     let array = [];
     let sum = 0;
-    for(let i=1; i<=20; i++){
+    for (let i = 1; i <= 20; i++) {
         array.push(i);
         sum += i;
     }
@@ -632,7 +635,7 @@
 {
     // 객체표현식으로 생성
     const people = {
-        이호준: "01050442903", 
+        이호준: "01050442903",
         이호상: "01051442904",
         이상: "01058442904",
         이호상: "01051442904",
@@ -641,12 +644,12 @@
         이호상: "01051442904",
         이지상: "01050442904",
         이호상: "01051442904"
-        
+
     };
     // set 생성
     let result = new Set();
     // people을 셋에 더한다. 
-    for(let key in people) {
+    for (let key in people) {
         result.add(people[key]);
     }
     console.log(result.size);
@@ -659,8 +662,8 @@
 {
     function solution(n) {
         let arr = n.split('');
-        for(let i=0; i<arr.length; i++) {
-            if(arr[i]===arr[i].toUpperCase()){
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === arr[i].toUpperCase()) {
                 arr[i] = arr[i].toLowerCase();
             }
             else {
@@ -680,7 +683,7 @@
     function solution(arr) {
         return Math.max(...arr);
     }
-    console.log(solution([10,9,8,7,6,5,4,3,2,1]));
+    console.log(solution([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]));
 }
 
 // 50. 버블정렬 구현#
@@ -704,7 +707,45 @@
     // const items = prompt('입력').split(' ').map((n) =>{
     //     return parseInt(n, 10);
     // });
-    
+
     // console.log(bubble(items));
-    
+
+}
+{
+    // 내장함수 사용
+    const n = prompt('숫자를 입력해주세요.');
+    parseInt(n, 10);
+
+    console.log(n.toLocaleString());
+
+    // 재귀함수 사용
+    function comma(s) {
+        if (s.length <= 3) {
+            return s;
+        } else {
+            return comma(s.slice(0, s.length - 3)) + ',' + s.slice(s.length - 3);
+        }
+    }
+
+    const n = prompt('숫자를 입력해주세요.');
+    console.log(comma(n));
+}
+{
+    // 내장함수 사용
+    const n = prompt('숫자를 입력해주세요.');
+    parseInt(n, 10);
+
+    console.log(n.toLocaleString());
+
+    // 재귀함수 사용
+    function comma(s) {
+        if (s.length <= 3) {
+            return s;
+        } else {
+            return comma(s.slice(0, s.length - 3)) + ',' + s.slice(s.length - 3);
+        }
+    }
+
+    const n = prompt('숫자를 입력해주세요.');
+    console.log(comma(n));
 }
