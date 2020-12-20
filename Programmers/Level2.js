@@ -39,3 +39,16 @@ console.log(solution("1 2 3 4"));
 console.log(solution("-1 -2 -3 -4"));
 console.log(solution("-1 -1"));
 }
+
+// 피보나치 수
+{
+    function solution(n) {
+        let array = [0,1];
+        for(let i=2; i<=n; i++) {
+            array.push((array[i-1] + array[i-2])%1234567);
+        }
+        return array[n];
+    }
+    console.log(solution(3));
+    console.log(solution(5));
+}
