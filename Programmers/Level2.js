@@ -52,3 +52,44 @@ console.log(solution("-1 -1"));
     console.log(solution(3));
     console.log(solution(5));
 }
+
+// 다음큰숫자
+{
+    function solution(n) {
+        let num=n+1;
+        let temp;
+        let nCnt=0;
+        let numCnt = 0;
+        while(n>0){
+            if(n%2===1){
+                nCnt++;
+            }
+            n = Math.floor(n/2);
+        }
+        while(true){
+            temp = num;
+            numCnt=0;
+            while(temp>0){
+                if(temp%2===1){
+                    numCnt++;
+                }
+                temp = Math.floor(temp/2);
+            }
+        if(nCnt===numCnt) {
+            return num;
+        }
+        num++;
+    }
+    }
+    console.log(solution(78));
+    console.log(solution(8));
+    console.log(solution(15));
+}
+{
+function solution(n,a=n+1) {
+    return n.toString(2).match(/1/g).length == a.toString(2).match(/1/g).length ? a : solution(n,a+1);
+}
+console.log(solution(78));
+console.log(solution(8));
+console.log(solution(15));
+}
