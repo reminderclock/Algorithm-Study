@@ -16,3 +16,26 @@
     console.log(solution([6, 10, 2]));
     console.log(solution([3, 30, 34, 5, 9]));
 }
+
+// 최대값고 최솟값
+{
+function solution(s) {
+    let n = s.split(' ').sort( (a,b) => a-b);
+    let array = [];
+    array.push(n[0]);
+    array.push(n[n.length-1]);
+    return array.join(' ');
+}
+console.log(solution("1 2 3 4"));
+console.log(solution("-1 -2 -3 -4"));
+console.log(solution("-1 -1"));
+}
+{
+    function solution(s) {
+        let array = s.split(' ');
+        return `${Math.min(...array)} ${Math.max(...array)}`;
+    }
+console.log(solution("1 2 3 4"));
+console.log(solution("-1 -2 -3 -4"));
+console.log(solution("-1 -1"));
+}
