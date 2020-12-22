@@ -93,3 +93,28 @@ console.log(solution(78));
 console.log(solution(8));
 console.log(solution(15));
 }
+// 124 나라의 숫자
+{
+    function solution(n) {
+        let array = [];
+        let num = n;
+        while(num>0) {
+        if(num%3===0){
+            array.push("4");
+            num = Math.floor(num/3)-1;           
+        }
+        else{
+            array.push(num%3);
+            num = Math.floor(num/3);           
+        }
+        }
+        return array.reverse().join('');
+    }
+    console.log(solution(1));
+    console.log(solution(2));
+    console.log(solution(3));
+    console.log(solution(6));
+    console.log(solution(7));
+    console.log(solution(8));
+    console.log(solution(9));
+}
