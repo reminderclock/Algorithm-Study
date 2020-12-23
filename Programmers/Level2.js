@@ -131,3 +131,23 @@ console.log(solution(15));
     }
     console.log(solution([1,4,2],[5,4,4]));
 }
+// 올바른 괄호
+{
+    function solution(s) {
+        let array = s.split('');
+        for(let i=1; i<array.length; i++) {
+            if((array[i-1]+array[i])==="()"){
+                array.splice(i-1,2);
+                i=1;
+            }
+        }
+        if(array.join('')==="()"){
+            return true;
+        }
+        return false;
+    }
+    console.log(solution("()()"));
+    console.log(solution("(())()"));
+    console.log(solution(")()("));
+    console.log(solution("(()("));
+}
