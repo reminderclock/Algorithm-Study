@@ -118,3 +118,16 @@ console.log(solution(15));
     console.log(solution(8));
     console.log(solution(9));
 }
+// 최솟값 만들기
+{
+    function solution(a,b) {
+        let sum=0;
+        a.sort((x,y)=> x-y);
+        b.sort((x,y) => y-x);
+        while(a.length>0) {
+            sum +=(a.pop()*b.pop());
+        }
+        return sum;
+    }
+    console.log(solution([1,4,2],[5,4,4]));
+}
