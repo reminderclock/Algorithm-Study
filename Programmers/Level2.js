@@ -151,3 +151,61 @@ console.log(solution(15));
     console.log(solution(")()("));
     console.log(solution("(()("));
 }
+//두수의 최소공배수
+{
+    function solution(a,b) {
+        if(Math.max(a,b)%Math.min(a,b)===0){
+            return Math.max(a,b);
+        }
+        else {
+            return a*b;
+        }
+    }
+    console.log(solution(2,6));
+    console.log(solution(2,7));
+}
+// n개의 최소공배수
+{
+    function solution(arr) {
+        let array =[];
+        // arr.sort( (a,b)=> b-a);
+        while(arr.length>0) {
+        let n = arr.pop();
+        for(let i=0; i<arr.length; i++){
+            if(arr[i]%n!==0){
+                array.push(n);
+                break;
+            }
+        }
+        }
+        return array;
+    }
+    console.log(solution([2,6,8,14]));
+    console.log(solution([1,2,3]));
+}
+{
+    function solution(arr) {
+        let array =[];
+        let array2=[];
+        for(let i=0; i<arr.length; i++) {
+            for(let j=1; j<=arr[i]; j++) {
+                if(arr[i]%j===0 && array.includes(j)===false){
+                    array.push(j);
+                }
+            }
+        }
+        for(let k=0; k<array.length; k++) {
+            let n = array.pop();
+            for(let y=0; y<array.length; y++) {
+                if(array[y]%n!==0){
+                    array2.push(n);
+                    break;
+                }
+            }
+        }
+
+        return array2;
+    }
+    console.log(solution([2,6,8,14]));
+    console.log(solution([1,2,3]));
+}
