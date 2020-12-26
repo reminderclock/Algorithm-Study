@@ -193,3 +193,21 @@ console.log(solution(15));
     return a % b ? gcd(b, a%b) : b
     }
 }
+// 짝지어 제거하기
+{
+    function solution(s) {
+        let arr=s.split('');
+        for(let i=1; i<arr.length; i++) {
+            if(arr[i-1]===arr[i]){
+                arr.splice(i-1,2);
+                i=1;
+            }
+        }
+        if(arr[0]===arr[1] && arr.length===2){
+            return 1;
+        }
+        return 0;
+    }
+    console.log(solution("baabaa"));
+    console.log(solution("cdcd"));
+}
