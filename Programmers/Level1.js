@@ -958,7 +958,43 @@ var solution=(a,b)=>a.reduce((a,c,i) => a+c*b[i], 0);
 }
 // 비밀지도
 {
-
+    function solution(n, arr1, arr2) {
+        var answer = [];
+        let newArr1 = [];
+        let newArr2 = []
+        for (let i=0; i<n; i++){
+            let tempArr1 = [];
+            let str1 = arr1[i].toString(2);
+            for (let j=0; j<n-str1.length; j++){
+                tempArr1.push(0);
+            }
+            for (let j=0; j<str1.length; j++){
+                tempArr1.push(str1[j]);
+            }
+            newArr1.push(tempArr1);
+            let tempArr2 = [];
+            let str2 = arr2[i].toString(2);
+            for (let j=0; j<n-str2.length; j++){
+                tempArr2.push(0);
+            }
+            for (let j=0; j<str2.length; j++){
+                tempArr2.push(str2[j]);
+            }
+            newArr2.push(tempArr2);
+        }
+        for (let i=0; i<n; i++){
+            let str = ''
+            for (let j=0; j<n; j++){
+                if(newArr1[i][j] === '1' || newArr2[i][j] === '1'){
+                    str+='#';
+                }else{
+                    str+=' ';
+                }
+            }
+            answer.push(str);
+        }
+        return answer;
+    }
 }
 // 실패율
 {
