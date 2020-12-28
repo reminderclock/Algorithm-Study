@@ -469,7 +469,20 @@
 // 출: 6
 // sort, 
 {
-
+    function solution(arr) {
+        let cnt =0;
+        let set = new Set(arr);
+        let unique = [...set];
+        unique.sort((a,b) => b-a);
+        unique.splice(3);
+        for(let i=0; i<arr.length; i++) {
+            if(unique.includes(arr[i])){
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+    console.log(solution([97, 86, 75, 66, 55, 97, 85, 97, 97, 95]));
 }
 
 // 39. 오타수정하기
@@ -710,42 +723,4 @@
 
     // console.log(bubble(items));
 
-}
-{
-    // 내장함수 사용
-    const n = prompt('숫자를 입력해주세요.');
-    parseInt(n, 10);
-
-    console.log(n.toLocaleString());
-
-    // 재귀함수 사용
-    function comma(s) {
-        if (s.length <= 3) {
-            return s;
-        } else {
-            return comma(s.slice(0, s.length - 3)) + ',' + s.slice(s.length - 3);
-        }
-    }
-
-    const n = prompt('숫자를 입력해주세요.');
-    console.log(comma(n));
-}
-{
-    // 내장함수 사용
-    const n = prompt('숫자를 입력해주세요.');
-    parseInt(n, 10);
-
-    console.log(n.toLocaleString());
-
-    // 재귀함수 사용
-    function comma(s) {
-        if (s.length <= 3) {
-            return s;
-        } else {
-            return comma(s.slice(0, s.length - 3)) + ',' + s.slice(s.length - 3);
-        }
-    }
-
-    const n = prompt('숫자를 입력해주세요.');
-    console.log(comma(n));
 }
