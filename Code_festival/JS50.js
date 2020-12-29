@@ -516,7 +516,21 @@
 //     20 
 // 출: 2
 {
-
+    function solution(limit, cnt, person) {
+        let sum =0;
+        let n=0;
+        for(let i of person){
+            sum += i;
+            n++;
+            if(sum>limit){
+                sum -= i;
+                n--;
+                return n;
+            }
+        }
+        return n;
+    }
+    console.log(solution(50, 5, [20,20,20,20,20]));
 }
 
 // 41. 소수판별
