@@ -1,37 +1,25 @@
 
 // const fs = require('fs');
 // const input = fs.readFileSync('/dev/stdin').toString().split('\n');
-const val = {
-    'black': '0',
-    'brown': '1',
-    'red': '2',
-    'orange': '3',
-    'yellow': '4',
-    'green': '5',
-    'blue': '6',
-    'violet': '7',
-    'grey': '8',
-    'white': '9'
-}
-const mul = {
-    'black': 1,
-    'brown': 10,
-    'red': 100,
-    'orange': 1000,
-    'yellow': 10000,
-    'green': 100000,
-    'blue': 1000000,
-    'violet': 10000000,
-    'grey': 100000000,
-    'white': 1000000000
-}
+
 // 테스트케이스
 function solution(input) {
-    let result = parseInt(val[input[0]]+val[input[1]])*mul[input[2]];
-    return typeof(result);    
+const color = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
+let result ='';
+for(let i=0; i<3; i++) {
+    for(let j=0; j<color.length; j++) {
+        if(input[i]===color[j]){
+            if(result.length ===2){
+                result = result*Math.pow(10,j);
+                return result;
+            }
+            result += j.toString();
+        }
+    }
 }
-
-const data = `yellow
+return result;
+}
+const data = `black
 yellow
 red`
 const input = data.toString().split('\n')
