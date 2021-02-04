@@ -1,13 +1,19 @@
-// 변형된 리스트
-function solution(a,b) {
-    let result1 = [];
-    let result2 = [];
-    for(let i=0; i<a.length; i++) {
-        result1.push(a[i]);
-        result1.push(b[i]);
-        result2.push(result1);
-        result1 = [];
+function solution(s) {
+    let str = s;
+    let cnt = 0;
+    while(str>=7) {
+        str = str-7;
+        cnt++;
     }
-    return result2;
+    while(str>=3) {
+        str = str-3;
+        // cnt++;
+    }
+    if(str !== 0) {
+        return -1;
+    }
+    return cnt;
 }
-console.log(solution([1,2,3,4],['a','b','c','d']));
+console.log(solution('24'));
+console.log(solution('25'));
+console.log(solution('14'));
