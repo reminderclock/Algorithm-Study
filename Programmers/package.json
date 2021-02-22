@@ -1,0 +1,11 @@
+{
+  "name": "programmers",
+  "version": "1.0.0",
+  "description": "programmers 코딩테스트 연습문제입니다.",
+  "main": "Level1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
