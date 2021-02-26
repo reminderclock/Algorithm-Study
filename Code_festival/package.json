@@ -1,0 +1,11 @@
+{
+  "name": "code_festival",
+  "version": "1.0.0",
+  "description": "제주코팅베이스캠프 JS 예제입니다.",
+  "main": "51.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
