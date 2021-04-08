@@ -12,8 +12,11 @@ function solution(bridge_length, weight, truck_weights) {
     }
     // 총 걸린 시간 
     let totalTime = 0;
+    stateArr.push(truck_weights.shift());
+    time++;
+    
     // 트럭 전부 처리할동안
-    while(truck_weights.length > 0 && cnt.length > 0) {
+    while(truck_weights.length > 0 && stateArr.length >0) {
         if(truck_weights.length === 0 && stateArr.length === 0){
             break;
         }
