@@ -23,7 +23,8 @@ function solution(new_id) {
     // for(let i=0; i<a.length-1; i++) {
     //     if()
     // }
-    if(a[0] === undefined) a = ['a']
+    if(a[0] === undefined) a = ['a'];
+    if(a.length >= 16) a.splice(14)
     return a;
 }
 console.log(solution(".2..!@BaT#*..y.abcdefghijklm"))
