@@ -27,6 +27,9 @@ function solution(n, arr1, arr2) {
         }
         result2.push(arr3.reverse());
     }
+    // for(let k=0; k<2; k++) {
+    //     for(let l=0; l)
+    // }
     console.log(result1);
     console.log(result2)
 
