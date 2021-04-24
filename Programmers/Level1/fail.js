@@ -3,7 +3,6 @@ function solution(N, stages) {
     let result2 = [];
     let set1 = new Set(stages);
     let arr = Array.from(set1);
-    console.log(arr[0])
     for(let i=0; i<arr.length; i++) {
         let result = stages.filter(n => {
             if(n === arr[i]) {
@@ -19,6 +18,10 @@ function solution(N, stages) {
         else return (b.length-a.length)
     });
     for(let j=0; j<answer.length; j++) {
+        if(answer[j]>N) {
+            result2.push(N);
+            continue;
+        }
         result2.push(answer[j][0]+1);
     }
     return result2;
