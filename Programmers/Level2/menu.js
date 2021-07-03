@@ -13,9 +13,9 @@ function solution(orders, course) {
         }
     }
     let newArr = [];
-    for(let l=0; l=alpaArr.length; l++) {
+    for(let l=0; l<alpaArr.length; l++) {
         let alpaNum = 0;
-        for(let o=l+1; o=alpaArr.length; o++) {
+        for(let o=l+1; o<alpaArr.length; o++) {
             console.log(alpaArr[1][1])
             if(alpaArr[l][1] === alpaArr[o][1]) {
                 alpaNum = alpaArr[l][0]+ alpaArr[o][0];
@@ -23,6 +23,6 @@ function solution(orders, course) {
         }
         newArr.push([alpaNum, alpaArr[l][1]]);
     }
-    return ;
+    return newArr;
 }
 console.log(solution(["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"], [2,3,4]));
