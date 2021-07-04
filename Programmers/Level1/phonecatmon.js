@@ -7,6 +7,9 @@
 //     else answer = [...set2].length;
 //     return answer;
 // }
+// 로직
+// 1. 최대 n/2 여야 한다.
+// 2. 범위 안에서 최대 종류를 선택해야 한다.
 
 function solution(nums) {
     const max = nums.length/2;
