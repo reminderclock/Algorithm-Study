@@ -4,6 +4,12 @@
 //     const max = lottos.filter(e => e === 0).length + min;
 //     return [rank[max], rank[min]]
 // }
+
+// 로직
+// 1. 로또 당첨번호에 포함되어있는 번호를 카운트 한다. 
+// 2. 지워진 번호의 갯수를 카운터한다. 
+// 3. 지워진 번호+포함번호 => 최고 카운트, 단순 포함번호 => 최저 카운트
+// 4. 갯수에 대한 등수 로직을 짠다. 
 function solution(lottos, win_nums) {
     const rank = [6,6,5,4,3,2,1];
     const min = [];
