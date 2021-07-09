@@ -11,3 +11,8 @@ function solution(left, right) {
     return answer;
 }
 console.log(solution(13,17))
+
+// 로직
+// 1. 범위의 수를 반복문 돌린다.
+// 2. 해당 수의 약수의 개수를 저장한다.
+// 3. 약수의 갯수에 따른 수의 부호를 정해 더해준다.
