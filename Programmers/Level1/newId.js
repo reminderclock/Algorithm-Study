@@ -9,6 +9,6 @@ function solution(new_id) {
         .padEnd(1, 'a') // 1 길이의 지정문자열 추가
         .slice(0, 15) // 1부터 15 길이 까지 자름
         .replace(/\.$/g, '')    // 마지막 . 있으면 "" 대체
-    return id.padEnd(3, id[id.length-1]) 
+    return id.padEnd(3, id[id.length-1]) // 길이가 3이 될때까지 마지막 글자 붙히기
 }
 console.log(solution("...!@BaT#*..y.abcdefghijklm"));
