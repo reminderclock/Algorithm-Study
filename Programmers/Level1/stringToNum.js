@@ -25,3 +25,23 @@ function solution(s) {
   }
   return parseInt(answer);
 }
+function solution(s) {
+  const apla = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+  ];
+  let answer = s;
+  apla.forEach((data, i) => {
+    const arr = answer.split(data);
+    answer = arr.join(i);
+  });
+  return Number(answer);
+}
