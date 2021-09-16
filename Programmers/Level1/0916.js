@@ -70,3 +70,7 @@ function solution(x, n) {
     .map((e, index) => (e = e * (index + 1)));
 }
 solution(2, 5);
+
+function solution(x, n) {
+  return [...Array(n).keys()].map((e) => (e + 1) * x);
+}
