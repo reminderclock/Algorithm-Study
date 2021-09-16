@@ -74,3 +74,34 @@ solution(2, 5);
 function solution(x, n) {
   return [...Array(n).keys()].map((e) => (e + 1) * x);
 }
+
+// 소수 만들기
+const getCombinations = function (arr, selectNumber) {
+  const results = [];
+  if (selectNumber === 1) return arr.map((el) => [el]);
+  arr.forEach((fixed, index, origin) => {
+    const rest = origin.slice(index + 1);
+    const combinations = getCombinations(rest, selectNumber - 1);
+    const attached = combinations.map((el) => [
+      fixed + el.reduce((acc, curr) => acc + curr, 0),
+    ]);
+    results.push(...attached);
+  });
+
+  return results;
+};
+function isPrime(num) {
+  for (let i = 2, s = Math.sqrt(num); i <= s; i++)
+    if (num % i === 0) return false;
+  return num > 1;
+}
+function solution(nums) {
+  let sum = 0;
+  let arr = getCombinations(nums, 3);
+  for (const el of arr) {
+    let data = el[0];
+    if (data > 2 && data % 2 === 0) continue;
+    else if (isPrime(data)) sum++;
+  }
+  return sum;
+}
