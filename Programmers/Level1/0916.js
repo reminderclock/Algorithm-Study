@@ -22,3 +22,7 @@ function solution(phone_number) {
   );
 }
 solution("01033334444");
+
+function solution(phone_number) {
+  return "*".repeat(phone_number.length - 4) + phone_number.slice(-4);
+}
