@@ -52,3 +52,14 @@ solution(
     [5, 6],
   ]
 );
+
+//  x 간격 만큼 숫자
+function solution(x, n) {
+  const arr = [];
+  let i = x;
+  while (arr.length < n) {
+    arr.push(i);
+    i += x;
+  }
+  return arr;
+}
