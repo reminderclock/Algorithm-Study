@@ -26,3 +26,10 @@ solution("01033334444");
 function solution(phone_number) {
   return "*".repeat(phone_number.length - 4) + phone_number.slice(-4);
 }
+
+function solution(phone_number) {
+  return phone_number
+    .split("")
+    .fill("*", 0, phone_number.length - 4)
+    .join("");
+}
