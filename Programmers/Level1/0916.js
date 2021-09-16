@@ -63,3 +63,10 @@ function solution(x, n) {
   }
   return arr;
 }
+
+function solution(x, n) {
+  return Array(n)
+    .fill(x)
+    .map((e, index) => (e = e * (index + 1)));
+}
+solution(2, 5);
