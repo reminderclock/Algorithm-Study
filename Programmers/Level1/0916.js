@@ -9,3 +9,8 @@ function solution(phone_number) {
     .join("");
 }
 solution("01033334444");
+
+function solution(phone_number) {
+  return phone_number.replace(/\d(?=\d{4})/g, "*");
+}
+solution("01033334444");
