@@ -33,3 +33,22 @@ function solution(phone_number) {
     .fill("*", 0, phone_number.length - 4)
     .join("");
 }
+
+// 행렬 덧셈
+function solution(arr1, arr2) {
+  return arr1.map((e1, index1) =>
+    e1.map((e2, index2) => {
+      return (e2 = e2 + arr2[index1][index2]);
+    })
+  );
+}
+solution(
+  [
+    [1, 2],
+    [2, 3],
+  ],
+  [
+    [3, 4],
+    [5, 6],
+  ]
+);
