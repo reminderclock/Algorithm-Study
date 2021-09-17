@@ -7,3 +7,12 @@ function solution(numbers) {
 function solution(numbers) {
   return 45 - numbers.reduce((acc, curr) => acc + curr, 0);
 }
+
+//
+function solution(price, money, count) {
+  const answer =
+    Array.from({ length: count }, (_, i) => i + 1)
+      .map((e) => e * price)
+      .reduce((acc, curr) => acc + curr, 0) - money;
+  return answer > 0 ? answer : 0;
+}
