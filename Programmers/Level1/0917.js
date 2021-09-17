@@ -4,3 +4,6 @@ function solution(numbers) {
     .filter((e) => !numbers.includes(e))
     .reduce((acc, curr) => acc + curr, 0);
 }
+function solution(numbers) {
+  return 45 - numbers.reduce((acc, curr) => acc + curr, 0);
+}
