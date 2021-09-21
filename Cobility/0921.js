@@ -31,3 +31,15 @@ function solution(A, K) {
 solution([3, 8, 9, 7, 6], 3);
 
 // 효율성을 위해 나누어줌
+
+function solution(A) {
+  const setA = new Set(A);
+  const array = Array.from(setA);
+  for (let i = 0; i < array.length; i++) {
+    if (A.indexOf(array[i]) === A.lastIndexOf(array[i])) return array[i];
+  }
+}
+solution([9, 3, 9, 3, 9, 7, 9]);
+
+// 효율성이 안나옴..
+// 에러케이스 하나 있음..
