@@ -43,3 +43,19 @@ solution([9, 3, 9, 3, 9, 7, 9]);
 
 // 효율성이 안나옴..
 // 에러케이스 하나 있음..
+
+function solution(A) {
+  let element = new Set();
+
+  for (let i in A) {
+    if (!element.has(A[i])) {
+      element.add(A[i]);
+    } else {
+      element.delete(A[i]);
+    }
+  }
+
+  const result = [...element];
+  return result[0];
+}
+solution([9, 3, 9, 3, 9, 7, 9]);
